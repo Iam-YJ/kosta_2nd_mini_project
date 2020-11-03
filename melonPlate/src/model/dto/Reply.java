@@ -1,5 +1,5 @@
 package model.dto;
 
-public class Melon {
+public class Reply {
 
 }
