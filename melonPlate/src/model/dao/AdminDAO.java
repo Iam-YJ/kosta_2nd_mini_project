@@ -1,5 +1,8 @@
 package model.dao;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import model.dto.Melon;
 import model.dto.Noti;
 
@@ -7,42 +10,47 @@ public interface AdminDAO {
 	/*
 	 * 맛집 등록
 	 * */
-	int insertRes(Melon melon);
+	int insertRes(Melon melon) throws SQLException;
 	
 	/*
 	 * 맛집 삭제
 	 * */
-	int deleteRes(int resNo);
+	int deleteRes(int resNo) throws SQLException;
 	
 	/*
 	 * 맛집 수정
 	 * */
-	int updateRes(Melon melon);
+	int updateRes(Melon melon) throws SQLException;
 	
 	/*
 	 * 회원 등급 관리
 	 * */
-	void manageUserGrade(String userId, String grade);
+	void manageUserGrade(String userId, String grade) throws SQLException;
 	
 	/*
 	 * 공지사항 작성
 	 * */
-	int insertNotice(Noti notice);
+	int insertNotice(Noti notice) throws SQLException;
 	
 	/*
 	 * 공지사항 수정
 	 * */
-	int updateNotice(Noti notice);
+	int updateNotice(Noti notice) throws SQLException;
 	
 	/*
 	 * 공지사항 삭제
 	 * */
-	int deleteNotice(int notiNo);
+	int deleteNotice(int notiNo) throws SQLException;
 	
 	/*
 	 * 회원 추방
 	 * */
 	
-	int banUser(String userId);
+	int banUser(String userId) throws SQLException;
+	
+	/**
+	 * 공지사항 조회
+	 */
+	List<Noti> selectNoti() throws SQLException;
 	
 }

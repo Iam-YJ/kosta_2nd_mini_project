@@ -47,7 +47,7 @@ public interface UserDAO {
 	/*
 	 * 친구 등록
 	 * */
-	int insertFriends(String userId, String frId);
+	int insertFriends(int userNo, int friendNo);
 	
 	/*
 	 * 친구 삭제
@@ -57,10 +57,10 @@ public interface UserDAO {
 	/*
 	 * 회원정보 수정
 	 * */
-	int updateUserInfo(User user);
+	int updateUserInfo(User user) throws SQLException;
 	
 	/*
 	 * 공지사항 보기
 	 * */
-	List<Noti> selectNotice();
+	List<Noti> selectNotice() throws SQLException;
 }

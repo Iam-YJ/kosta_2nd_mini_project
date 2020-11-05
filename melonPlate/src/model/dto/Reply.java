@@ -23,6 +23,17 @@ public class Reply {
       this.repDate = repDate;
       this.repAgree = repAgree;
    }
+   
+   /**
+    * 수정용 생성자
+    */
+   public Reply(int resNo, int userNo, int repGrade, String repPhoto, String repContent) {
+	   this.resNo = resNo;
+	   this.userNo = userNo;
+	   this.repGrade = repGrade;
+	   this.repPhoto = repPhoto;
+	   this.repContent = repContent;
+   }
 
    public int getReviewNo() {
       return reviewNo;

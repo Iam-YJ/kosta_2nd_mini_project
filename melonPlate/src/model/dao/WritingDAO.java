@@ -27,7 +27,7 @@ public interface WritingDAO {
 	/*
 	 * 글 수정
 	 * */
-	int updateWriting(Writing writing);
+	int updateWriting(Writing writing) throws SQLException;
 	
 	/*
 	 * 글 전체보기
