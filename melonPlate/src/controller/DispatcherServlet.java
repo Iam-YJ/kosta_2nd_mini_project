@@ -25,7 +25,12 @@ public class DispatcherServlet extends HttpServlet {
 		map = (Map<String, Controller>) super.getServletContext().getAttribute("map");
 		clzMap = (Map<String, Class<?>>) super.getServletContext().getAttribute("clzMap");
 		System.out.println(clzMap);
+		map = (Map<String, Controller>) getServletContext().getAttribute("map");
+		clzMap = (Map<String, Class<?>>) getServletContext().getAttribute("clzMap");
+
 	}
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -55,8 +60,7 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
 	}
-
 }

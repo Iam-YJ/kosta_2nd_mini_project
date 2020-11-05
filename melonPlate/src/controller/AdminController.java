@@ -2,11 +2,14 @@ package controller;
 
 import java.sql.SQLException;
 
+import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import model.dto.Melon;
 import model.dto.Noti;
+
+@WebServlet("/admin")
 
 public class AdminController implements Controller {
 
