@@ -229,8 +229,19 @@ public class MelonDAOImpl implements MelonDAO{
 	}
 
 	@Override
-	public List<Melon> selectRecommend() throws SQLException {
+	public List<Melon> selectRecommend(double lat, double lon) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "";
 		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
 		return null;
 	}
 
