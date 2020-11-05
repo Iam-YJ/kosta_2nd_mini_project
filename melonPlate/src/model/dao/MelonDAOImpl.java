@@ -12,6 +12,9 @@ import util.DbUtil;
 
 public class MelonDAOImpl implements MelonDAO{
 
+	/**
+	 * 조회수 정렬
+	 */
 	@Override
 	public List<Melon> selectByHits() throws SQLException {
 		List<Melon> list = new ArrayList<Melon>();
@@ -102,7 +105,11 @@ public class MelonDAOImpl implements MelonDAO{
 		}
 		return list;
 	}
-
+	
+	
+	/**
+	 * 평점 정렬
+	 */
 	@Override
 	public int updateHits(int resNo) throws SQLException {
 		Connection con = null;
@@ -122,6 +129,9 @@ public class MelonDAOImpl implements MelonDAO{
 		return result;
 	}
 
+	/**
+	 * 식당종류(음식테마) 정렬
+	 */
 	@Override
 	public List<Melon> selectByArea(String area) throws SQLException {
 		Connection con = null;
@@ -156,6 +166,9 @@ public class MelonDAOImpl implements MelonDAO{
 		return list;
 	}
 
+	/**
+	 * 조회수 업데이트
+	 */
 	@Override
 	public List<Melon> selectByResName(String resName) throws SQLException {
 		Connection con = null;
@@ -193,6 +206,9 @@ public class MelonDAOImpl implements MelonDAO{
 		return list;
 	}
 
+	/**
+	 * 지역별 정렬
+	 */
 	@Override
 	public List<Melon> selectByPrice(String price) throws SQLException {
 		Connection con = null;
