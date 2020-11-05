@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import model.dto.Melon;
@@ -29,6 +30,5 @@ public interface MelonDAO {
 	 * 지역별 검색 (지역)
 	 * */
 	List<Melon> selectByArea(String area);
-	
 
 }
