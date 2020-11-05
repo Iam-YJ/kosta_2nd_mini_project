@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +23,7 @@
     <!-- Icon fonts-->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Plugin styles -->
-    <link href="vendor/animate.min.css" rel="stylesheet">
-    <link href="vendor/magnific-popup.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Your custom styles -->
     <link href="css/custom.css" rel="stylesheet">
 </head>
@@ -239,67 +240,95 @@
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Reviews</li>
+                <li class="breadcrumb-item active">My Dashboard</li>
             </ol>
-            <div class="box_general">
-                <div class="header_box">
-                    <h2 class="d-inline-block">Reviews List</h2>
-                    <div class="filter">
-                        <select name="orderby" class="selectbox">
-                            <option value="Any time">Any time</option>
-                            <option value="Latest">Latest</option>
-                            <option value="Oldest">Oldest</option>
-                        </select>
+            <!-- Icon Cards-->
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card dashboard text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-envelope-open"></i>
+                            </div>
+                            <div class="mr-5">
+                                <h5>26 New Messages!</h5>
+                            </div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="messages.html">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
                     </div>
                 </div>
-                <div class="list_general reviews">
-                    <ul>
-                        <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 8.5</strong></span>
-                            <figure><img src="img/item_1.jpg" alt=""></figure>
-                            <h4>La Monnalisa <small>by M.Twain</small></h4>
-                            <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
-                        </li>
-                        <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 9.5</strong></span>
-                            <figure><img src="img/item_2.jpg" alt=""></figure>
-                            <h4>Da Alfredo <small>by M.Giuliani</small></h4>
-                            <p>Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
-                        </li>
-                        <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 9.0</strong></span>
-                            <figure><img src="img/item_3.jpg" alt=""></figure>
-                            <h4>Sushi Gold <small>by G.Lukas</small></h4>
-                            <p>Cum id mundi admodum menandri, eum errem aperiri at. Ut quas facilis qui, euismod admodum persequeris cum at. Summo aliquid eos ut, eum facilisi salutatus ne. Mazim option abhorreant ne his. Mel simul iisque albucius at, probatus indoctum efficiendi mei ei. Veniam percipit ei sea.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
-                        </li>
-                    </ul>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card dashboard text-white bg-warning o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-star"></i>
+                            </div>
+                            <div class="mr-5">
+                                <h5>11 New Reviews!</h5>
+                            </div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="reviews.html">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card dashboard text-white bg-success o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-calendar-check-o"></i>
+                            </div>
+                            <div class="mr-5">
+                                <h5>10 New Bookings!</h5>
+                            </div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="bookings.html">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card dashboard text-white bg-danger o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-heart"></i>
+                            </div>
+                            <div class="mr-5">
+                                <h5>10 New Bookmarks!</h5>
+                            </div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="bookmarks.html">
+                            <span class="float-left">View Details</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <!-- /box_general-->
-            <nav aria-label="...">
-                <ul class="pagination pagination-sm add_bottom_30">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /pagination-->
+            <!-- /cards -->
+            <h2></h2>
+            <div class="box_general padding_bottom">
+                <div class="header_box version_2">
+                    <h2><i class="fa fa-bar-chart"></i>Statistic</h2>
+                </div>
+                <canvas id="myAreaChart" width="100%" height="30" style="margin:45px 0 15px 0;"></canvas>
+            </div>
         </div>
-        <!-- /container-fluid-->
+        <!-- /.container-fluid-->
     </div>
-    <!-- /container-wrapper-->
+    <!-- /.container-wrapper-->
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
@@ -311,19 +340,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
-
-    <!-- Reply to review popup -->
-    <div id="modal-reply" class="white-popup mfp-with-anim mfp-hide">
-        <div class="small-dialog-header">
-            <h3>Reply to review</h3>
-        </div>
-        <div class="message-reply margin-top-0">
-            <div class="form-group">
-                <textarea cols="40" rows="3" class="form-control"></textarea>
-            </div>
-            <button class="btn_1">Reply</button>
-        </div>
-    </div>
 
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -350,7 +366,7 @@
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/chart.js/Chart.js"></script>
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <script src="vendor/jquery.selectbox-0.2.js"></script>
@@ -358,6 +374,8 @@
     <script src="vendor/jquery.magnific-popup.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/admin.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/admin-charts.js"></script>
 </body>
 
 </html>

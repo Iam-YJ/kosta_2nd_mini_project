@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,8 @@
     <!-- Icon fonts-->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Plugin styles -->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="vendor/animate.min.css" rel="stylesheet">
+    <link href="vendor/magnific-popup.css" rel="stylesheet">
     <!-- Your custom styles -->
     <link href="css/custom.css" rel="stylesheet">
 </head>
@@ -238,11 +241,11 @@
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">Bookmarks</li>
+                <li class="breadcrumb-item active">Reviews</li>
             </ol>
             <div class="box_general">
                 <div class="header_box">
-                    <h2 class="d-inline-block">Bookmarks</h2>
+                    <h2 class="d-inline-block">Reviews List</h2>
                     <div class="filter">
                         <select name="orderby" class="selectbox">
                             <option value="Any time">Any time</option>
@@ -251,37 +254,31 @@
                         </select>
                     </div>
                 </div>
-                <div class="list_general">
+                <div class="list_general reviews">
                     <ul>
                         <li>
+                            <span>June 15 2019</span>
+                            <span class="rating"><strong>Rate: 8.5</strong></span>
                             <figure><img src="img/item_1.jpg" alt=""></figure>
-                            <small>Pizza - Italian</small>
-                            <h4>La Monnalisa</h4>
-                            <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View item</a></p>
-                            <ul class="buttons">
-                                <li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                            </ul>
+                            <h4>La Monnalisa <small>by M.Twain</small></h4>
+                            <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
+                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
                         </li>
                         <li>
+                            <span>June 15 2019</span>
+                            <span class="rating"><strong>Rate: 9.5</strong></span>
                             <figure><img src="img/item_2.jpg" alt=""></figure>
-                            <small>Pizza - Italian</small>
-                            <h4>Da Alfredo</h4>
-                            <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View item</a></p>
-                            <ul class="buttons">
-                                <li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                            </ul>
+                            <h4>Da Alfredo <small>by M.Giuliani</small></h4>
+                            <p>Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
+                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
                         </li>
                         <li>
+                            <span>June 15 2019</span>
+                            <span class="rating"><strong>Rate: 9.0</strong></span>
                             <figure><img src="img/item_3.jpg" alt=""></figure>
-                            <small>Japanese</small>
-                            <h4>Sushi Gold</h4>
-                            <p>Lorem ipsum dolor sit amet, est ei idque voluptua copiosae, pro detracto disputando reformidans at, ex vel suas eripuit. Vel alii zril maiorum ex, mea id sale eirmod epicurei. Sit te possit senserit, eam alia veritus maluisset ei, id cibo vocent ocurreret per....</p>
-                            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-eye"></i> View item</a></p>
-                            <ul class="buttons">
-                                <li><a href="#0" class="btn_1 gray delete wishlist_close"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                            </ul>
+                            <h4>Sushi Gold <small>by G.Lukas</small></h4>
+                            <p>Cum id mundi admodum menandri, eum errem aperiri at. Ut quas facilis qui, euismod admodum persequeris cum at. Summo aliquid eos ut, eum facilisi salutatus ne. Mazim option abhorreant ne his. Mel simul iisque albucius at, probatus indoctum efficiendi mei ei. Veniam percipit ei sea.</p>
+                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
                         </li>
                     </ul>
                 </div>
@@ -316,8 +313,21 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
 
+    <!-- Reply to review popup -->
+    <div id="modal-reply" class="white-popup mfp-with-anim mfp-hide">
+        <div class="small-dialog-header">
+            <h3>Reply to review</h3>
+        </div>
+        <div class="message-reply margin-top-0">
+            <div class="form-group">
+                <textarea cols="40" rows="3" class="form-control"></textarea>
+            </div>
+            <button class="btn_1">Reply</button>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

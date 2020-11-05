@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,10 +164,16 @@
 		    </div>
 		</div>
 		<!-- /page_header -->
+		<div class="collapse" id="collapseMap">
+			<div id="map" class="map"></div>
+		</div>
+		<!-- /Map -->
+
 		<div class="container margin_30_40">			
 			<div class="row">
 				<aside class="col-lg-3" id="sidebar_fixed">
 					<div class="clearfix">
+					<a class="btn_map d-flex align-items-center justify-content-center" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" ><span class="btn_map_txt" data-text-swap="Hide Map" data-text-original="View on Map">View on Map</span></a>
 					<div class="sort_select">
 							<select name="sort" id="sort">
                                 <option value="popularity" selected="selected">Sort by Popularity</option>
@@ -175,6 +183,7 @@
                                 <option value="price-desc">Sort by Price: high to low</option>
 							</select>
 						</div>
+						<a class="btn_map mobile btn_filters" data-toggle="collapse" href="#collapseMap"><i class="icon_pin_alt"></i></a>
 						<a href="#0" class="open_filters btn_filters"><i class="icon_adjust-vert"></i><span>Filters</span></a>
 					</div>
 					<div class="filter_col">
@@ -324,9 +333,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take yes">Take away</span> <span class="deliv yes">Delivery</span></li>
+							        <li><span>Avg. Price 24$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -346,9 +355,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take no">Take away</span> <span class="deliv yes">Delivery</span></li>
+							        <li><span>Avg. Price 14$</span></li>
 							        <li>
-							        	<div class="score"><strong>9.5</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -367,9 +376,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							       <li><span class="take yes">Take away</span> <span class="deliv no">Delivery</span></li>
+							       <li><span>Avg. Price 21$</span></li>
 							        <li>
-							        	<div class="score"><strong>7.5</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.5</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -389,9 +398,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							         <li><span class="take no">Take away</span> <span class="deliv no">Delivery</span></li>
+							         <li><span>Avg. Price 12$</span></li>
 							        <li>
-							        	<div class="score"><strong>9.5</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -411,9 +420,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							         <li><span class="take yes">Take away</span> <span class="deliv no">Delivery</span></li>
+							         <li><span>Avg. Price 25$</span></li>
 							        <li>
-							        	<div class="score"><strong>7.0</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.0</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -432,9 +441,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							         <li><span class="take no">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 18$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -454,9 +463,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take no">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 25$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -475,9 +484,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take yes">Take away</span> <span class="deliv no">Delivery</span></li>
+							         <li><span>Avg. Price 28$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -496,9 +505,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take yes">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 29$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -517,9 +526,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take yes">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 29$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -538,9 +547,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take yes">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 29$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -559,9 +568,9 @@
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span class="take no">Take away</span> <span class="deliv yes">Delivery</span></li>
+							         <li><span>Avg. Price 29$</span></li>
 							        <li>
-							        	<div class="score"><strong>8.9</strong></div>
+							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
 							        </li>
 							    </ul>
 							</div>
@@ -746,6 +755,11 @@
     <!-- SPECIFIC SCRIPTS -->
     <script src="js/sticky_sidebar.min.js"></script>
     <script src="js/specific_listing.js"></script>
+
+    <!-- Map -->
+    <script src="js/main_map_scripts.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+
 
 </body>
 </html>
