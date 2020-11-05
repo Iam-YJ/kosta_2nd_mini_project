@@ -19,30 +19,33 @@ import controller.ModelAndView;
  */
 @WebServlet("/dispatcher")
 public class DispatcherServlet extends HttpServlet {
-	private Map<String , Controller> map;
-	private Map<String, Class<?>> clzMap;
 	
+	private Map<String, Controller> map;
+	private Map<String, Class<?>> clzMap;
+
 	@Override
 	public void init() throws ServletException {
-		map = (Map<String, Controller>)getServletContext().getAttribute("map");
-		clzMap = (Map<String, Class<?>>)getServletContext().getAttribute("clzMap");
+
+		map = (Map<String, Controller>) getServletContext().getAttribute("map");
+		clzMap = (Map<String, Class<?>>) getServletContext().getAttribute("clzMap");
 	}
+
 	private static final long serialVersionUID = 1L;
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String key = request.getParameter("command");
+		String key = request.getParameter("key");
 		String methodName = request.getParameter("methodName");
-		System.out.println("key = " + key + ", methodName = " + methodName);
-		
-		if(key==null || key.equals("")) key="list";
-		
-		Controller con = map.get(key);
+		System.out.println("key = " + key);
+		System.out.println("methodName = " + methodName);
 		Class<?> cls = clzMap.get(key);
+		Controller con = map.get(key);
+		System.out.println("con: " + con);
 		
 	  try {
 		Method method = cls.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-		ModelAndView mv = (ModelAndView)method.invoke(con, request, response);
-		//System.out.println(mv);
+
+		ModelAndView mv = (ModelAndView) method.invoke(con, request, response);
 		if(mv.isRedirect()) {
 			response.sendRedirect(mv.getViewName());
 		}else {

@@ -6,6 +6,8 @@ import java.util.List;
 import model.dao.UserDAO;
 import model.dao.UserDAOImpl;
 import model.dto.Melon;
+import model.dto.Noti;
+import model.dto.User;
 
 public class UserService {
 	
@@ -45,6 +47,29 @@ public class UserService {
 		
 		int result = dao.updatePoint(userNo, point);
 		return result;
+	}
+	
+	/**
+	 * 회원정보 수정
+	 */
+	public int updateUserInfo(User user) throws SQLException {
+
+		int result = dao.updateUserInfo(user);
+		if (result == 0)
+			throw new SQLException("수정되지 않았습니다.");
+		return result;
+	}
+	
+	/**
+	 * 공지사항 조회
+	 * */
+	
+	public List<Noti> selectNotice() throws SQLException{
+		List<Noti> list= dao.selectNotice();
+		if (list.size() == 0)
+			throw new SQLException("검색결과 없습니다.");
+		return list;
+		
 	}
 
 }

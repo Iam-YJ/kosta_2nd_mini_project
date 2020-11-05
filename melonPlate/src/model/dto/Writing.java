@@ -56,7 +56,7 @@ public class Writing {
 		return wriList;
 	}
 
-	public void setOrderLineList(List<WriList> wriList) {
+	public void setWriList(List<WriList> wriList) {
 		this.wriList = wriList;
 	}	
 	
