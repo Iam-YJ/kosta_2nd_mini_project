@@ -8,13 +8,27 @@ public class Melon {
 	private String resType;
 	private String resPhoto;
 	private int resHits;
-	private int resGrade;
+	private double resGrade;
 	private String resPrice;
 
 	public Melon() {}
 
+	
+	
+	public Melon(String resName, String resPlace, String resTel, String resType, String resPhoto, String resPrice) {
+		super();
+		this.resName = resName;
+		this.resPlace = resPlace;
+		this.resTel = resTel;
+		this.resType = resType;
+		this.resPhoto = resPhoto;
+		this.resPrice = resPrice;
+	}
+
+
+
 	public Melon(int resNo, String resName, String resPlace, String resTel, String resType, String resPhoto,
-			int resHits, int resGrade, String resPrice) {
+			int resHits, double resGrade, String resPrice) {
 		this.resNo = resNo;
 		this.resName = resName;
 		this.resPlace = resPlace;
@@ -82,11 +96,11 @@ public class Melon {
 		this.resHits = resHits;
 	}
 
-	public int getResGrade() {
+	public double getResGrade() {
 		return resGrade;
 	}
 
-	public void setResGrade(int resGrade) {
+	public void setResGrade(double resGrade) {
 		this.resGrade = resGrade;
 	}
 

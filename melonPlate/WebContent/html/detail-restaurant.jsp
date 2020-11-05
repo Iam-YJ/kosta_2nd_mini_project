@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,9 +199,14 @@
 		                            	<p>Mei at intellegat reprehendunt, te facilisis definiebas dissentiunt usu. Choro delicata voluptatum cu vix. Sea error splendide at. Te sed facilisi persequeris definitiones, ad per scriptorem instructior, vim latine adipiscing no. Cu tacimates salutandi his, mel te dicant quodsi aperiri. Unum timeam his eu.</p>
 		                            	<p>An malorum ornatus nostrum vel, graece iracundia laboramus cu ius. No pro mazim blandit instructior, sumo voluptaria has et, vide persecuti abhorreant ne est.</p>
 		                            	<div class="add_bottom_25"></div>
-		                                <h2>Pictures Instagram Feed</h2>
-		                                <p id="instagram-feed-restaurant" class="clearfix"></p>
-		    							<p class="text-center add_bottom_25"><a href="#0" class="btn_1 outline"><i class="social_instagram"></i> Follow us On Instragram</a></p>
+		                                <h2>Pictures from our users</h2>
+		                                <div class="pictures magnific-gallery clearfix">
+		                                    <figure><a href="img/detail_gallery/detail_1.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_1.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_2.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_3.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_4.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_4.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_5.jpg" title="Photo title" data-effect="mfp-zoom-in"><span class="d-flex align-items-center justify-content-center">+10</span><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_5.jpg" class="lazy" alt=""></a></figure>
+		                                </div>
 		                                <!-- /pictures -->
 		                                <h2>Da Alfredo Menu</h2>
 		                                <h3>Starters</h3>
@@ -782,25 +789,6 @@
     <script src="js/specific_detail.js"></script>
 	<script src="js/datepicker.min.js"></script>
 	<script src="js/datepicker_func_1.js"></script>
-    <script src="js/jquery.instagramFeed.min.js"></script>
-	<script>
-		$(window).on('load', function() {
-			"use strict";
-			$.instagramFeed({
-				'username': 'restaurantetanit',
-				'container': "#instagram-feed-restaurant",
-				'display_profile': false,
-				'display_biography': false,
-				'display_gallery': true,
-				'get_raw_json': false,
-				'callback': null,
-				'styling': true,
-				'items': 8,
-				'items_per_row': 4,
-				'margin': 1
-			});
-		});
-	</script>
 
 </body>
 </html>

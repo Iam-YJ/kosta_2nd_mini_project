@@ -10,6 +10,16 @@ public class Noti {
 
 	
 	public Noti() {}
+	
+	public Noti(int userNo, String notiTitle, String notiDate, String notiContent, int notiHits) {
+		super();
+		this.userNo = userNo;
+		this.notiTitle = notiTitle;
+		this.notiDate = notiDate;
+		this.notiContent = notiContent;
+		this.notiHits = notiHits;
+	}
+
 	public Noti(int notiNo, int userNo, String notiTitle, String notiDate, String notiContent, int notiHits) {
 		this.notiNo = notiNo;
 		this.userNo = userNo;

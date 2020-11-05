@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +26,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- SPECIFIC CSS -->
-    <link href="css/review.css" rel="stylesheet">
+    <link href="css/about.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
@@ -33,11 +35,12 @@
 
 <body>
 				
-	<header class="header_in clearfix">
+	<header class="header clearfix element_to_stick">
 		<div class="container">
 		<div id="logo">
 			<a href="index.html">
-				<img src="img/logo_sticky.svg" width="140" height="35" alt="">
+				<img src="img/logo.svg" width="140" height="35" alt="" class="logo_normal">
+				<img src="img/logo_sticky.svg" width="140" height="35" alt="" class="logo_sticky">
 			</a>
 		</div>
 		<ul id="top_menu">
@@ -137,59 +140,163 @@
 	</header>
 	<!-- /header -->
 	
-	<main class="bg_gray pattern">
-		
-		<div class="container margin_60_40">
-		   <div class="row justify-content-center">
-				<div class="col-lg-8">
-					<div class="box_general write_review">
-						<h1 class="add_bottom_15">Write a review for "Pizzeria Da Alfredo"</h1>
-
-						<label class="d-block add_bottom_15">Overall rating</label>
-						<div class="row">
-							<div class="col-md-3 add_bottom_25">
-							   <div class="add_bottom_15">Food Quality <strong class="food_quality_val"></strong></div>
-			                   <input type="range" min="0" max="10" step="1" value="0" data-orientation="horizontal" id="food_quality" name="food_quality">
-							</div>
-							<div class="col-md-3 add_bottom_25">
-								<div class="add_bottom_15">Service <strong class="service_val"></strong></div>
-			                   <input type="range" min="0" max="10" step="1" value="0" data-orientation="horizontal" id="service" name="service">
-							</div>
-							<div class="col-md-3 add_bottom_25">
-								<div class="add_bottom_15">Location <strong class="location_val"></strong></div>
-			                   <input type="range" min="0" max="10" step="1" value="0" data-orientation="horizontal" id="location" name="location">
-							</div>
-							<div class="col-md-3 add_bottom_25">
-								<div class="add_bottom_15">Price <strong class="price_val"></strong></div>
-			                   <input type="range" min="0" max="10" step="1" value="0" data-orientation="horizontal" id="price" name="price">
-							</div>
+	<main>
+		<div class="hero_single inner_pages background-image" data-background="url(img/hero_general.jpg)">
+			<div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xl-9 col-lg-10 col-md-8">
+							<h1>Your Wishlist</h1>
+							<p>Foogra a successful restaurant experience</p>
 						</div>
-						
-						<div class="form-group">
-							<label>Title of your review</label>
-							<input class="form-control" type="text" placeholder="If you could say it in one sentence, what would you say?">
-						</div>
-						<div class="form-group">
-							<label>Your review</label>
-							<textarea class="form-control" style="height: 180px;" placeholder="Write your review to help others learn about this online business"></textarea>
-						</div>
-						<div class="form-group">
-							<label>Add your photo (optional)</label>
-							<div class="fileupload"><input type="file" name="fileupload" accept="image/*"></div>
-						</div>
-						<div class="form-group">
-							<div class="checkboxes float-left add_bottom_15 add_top_15">
-								<label class="container_check">Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his.
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</div>
-						</div>
-						<a href="confirm.html" class="btn_1">Submit review</a>
 					</div>
+					<!-- /row -->
 				</div>
+			</div>
 		</div>
-		<!-- /row -->
+		<!-- /hero_single -->
+
+		<div class="container margin_60_30">
+			<div class="main_title center">
+			    <span><em></em></span>
+			    <h2>Listed Restaurants</h2>
+			    <p>Cum doctus civibus efficiantur in imperdiet deterruisset</p>
+			</div>
+			<div class="row">
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					 <div class="strip">
+			            <figure>
+			                <span class="ribbon off">-30%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_1.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Pizza</small>
+			                    <div class="item_title">
+			                        <h3>Da Alfredo</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					 <div class="strip">
+			            <figure>
+			                <span class="ribbon off">-40%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_2.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Burghers</small>
+			                    <div class="item_title">
+			                        <h3>Best Burghers</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
+			                </li>
+			            </ul>
+			        </div>	
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="strip">
+			            <figure>
+			                <span class="ribbon off">-30%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_3.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Vegetarian</small>
+			                    <div class="item_title">
+			                        <h3>Vego Life</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.5</strong></div>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="strip">
+			            <figure>
+			                <span class="ribbon off">-25%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_4.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Japanese</small>
+			                    <div class="item_title">
+			                        <h3>Sushi Temple</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					 <div class="strip">
+			            <figure>
+			                <span class="ribbon off">-30%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_5.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Pizza</small>
+			                    <div class="item_title">
+			                        <h3>Auto Pizza</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.0</strong></div>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
+				<!-- /box_grid -->
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					 <div class="strip">
+			            <figure>
+			                <span class="ribbon off">-15%</span>
+			                <img src="img/lazy-placeholder.png" data-src="img/location_6.jpg" class="lazy" alt="">
+			                <a href="detail-restaurant.html" class="strip_info">
+			                    <small>Burghers</small>
+			                    <div class="item_title">
+			                        <h3>Alliance</h3>
+			                        <small>27 Old Gloucester St</small>
+			                    </div>
+			                </a>
+			            </figure>
+			            <ul>
+			                <li><a href="#0" class="wish_bt"><i class="icon_trash_alt"></i> Remove</a></li>
+			                <li>
+			                    <div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
+			                </li>
+			            </ul>
+			        </div>
+				</div>
+				<!-- /box_grid -->
+			</div>			
+			
 		</div>
 		<!-- /container -->
 		
@@ -326,7 +433,7 @@
 						  <span class="checkmark"></span>
 						</label>
 					</div>
-					<div class="float-right"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+					<div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
 				</div>
 				<div class="text-center">
 					<input type="submit" value="Log In" class="btn_1 full-width mb_5">
@@ -352,8 +459,11 @@
     <script src="js/common_func.js"></script>
     <script src="assets/validate.js"></script>
 
-    <!-- SPECIFIC SCRIPTS -->
-    <script src="js/specific_review.js"></script>
+    <script>
+		$('.wish_bt').on('click', function (c) {
+			$(this).parent().parent().parent().parent().fadeOut('slow', function (c) {});
+		});
+	</script>
 
 </body>
 </html>
