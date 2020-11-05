@@ -6,11 +6,25 @@ public class Noti {
 	private String notiTitle;// 공지사항 제목
 	private String notiDate;// 공지사항 작성날짜
 	private String notiContent;// 공지사항 내용
-	private String notiHits;// 공지사항 조회수
+	private int notiHits;// 공지사항 조회수
 
 	
 	public Noti() {}
-	public Noti(int notiNo, int userNo, String notiTitle, String notiDate, String notiContent, String notiHits) {
+	
+	
+	
+	public Noti(int userNo, String notiTitle, String notiDate, String notiContent, int notiHits) {
+		super();
+		this.userNo = userNo;
+		this.notiTitle = notiTitle;
+		this.notiDate = notiDate;
+		this.notiContent = notiContent;
+		this.notiHits = notiHits;
+	}
+
+
+
+	public Noti(int notiNo, int userNo, String notiTitle, String notiDate, String notiContent, int notiHits) {
 		this.notiNo = notiNo;
 		this.userNo = userNo;
 		this.notiTitle = notiTitle;
@@ -59,11 +73,11 @@ public class Noti {
 		this.notiContent = notiContent;
 	}
 
-	public String getNotiHits() {
+	public int getNotiHits() {
 		return notiHits;
 	}
 
-	public void setNotiHits(String notiHits) {
+	public void setNotiHits(int notiHits) {
 		this.notiHits = notiHits;
 	}
 
