@@ -28,7 +28,7 @@ public class EncodingFilter implements Filter {
 			throws IOException, ServletException {
 		//사전처리
 		request.setCharacterEncoding(encoding);
-		
+
 		chain.doFilter(request, response);//요청된 컴포넌트가 호출된다.
 		//사후처리
 		

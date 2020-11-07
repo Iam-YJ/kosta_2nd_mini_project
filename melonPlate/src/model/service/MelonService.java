@@ -44,6 +44,7 @@ public class MelonService {
 	public static List<Melon> selectByArea(String area) throws SQLException {
 		MelonDAO melonDAO = new MelonDAOImpl();
 		// dao를 호출하고 그결과를 리턴
+		System.out.println("hi");
 		List<Melon> list = melonDAO.selectByArea(area);
 
 		return list;

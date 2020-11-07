@@ -3,6 +3,7 @@ package controller;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.dto.Melon;
 import model.service.AdminService;
 
@@ -21,6 +22,7 @@ public class AdminController implements Controller {
 	 */
 	public ModelAndView insertRes(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("AdminController의 insertRes 호출되었습니다");
+
 		String resName = request.getParameter("resName");
 		String resTel = request.getParameter("resTel");
 		String resLoc = request.getParameter("resLoc");
@@ -31,12 +33,24 @@ public class AdminController implements Controller {
 		String resPhoto = request.getParameter("resPhoto");
 		String resPlace = resLoc + resLocDetail;
 
+		/*
+		 * System.out.println(resName); System.out.println(resTel);
+		 * System.out.println(resLoc); System.out.println(resLocDetail);
+		 * System.out.println(resKind); System.out.println(resMenu);
+		 * System.out.println(resPrice); System.out.println(resPhoto);
+		 * System.out.println(resPlace);
+		 */
+
 		Melon melon = new Melon(resName, resPlace, resTel, resKind, resPhoto, resPrice);
+
 		AdminService.insertRes(melon);
 
-		ModelAndView mv = new ModelAndView("elec", true);
+		ModelAndView mv = new ModelAndView("html/admin_section/add-listing-with-menu-list.jsp", true);
 
-		return new ModelAndView(request.getContextPath() + "/add-listing-with-menu-list.html", false);
+		return mv;
+		// new ModelAndView(request.getContextPath() +
+		// "/add-listing-with-menu-list.html", false);
+
 	}
 
 	/**

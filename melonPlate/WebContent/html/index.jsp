@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 찐 메인 -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -742,7 +742,7 @@
 							var adminPwd = prompt("Password를 입력하세요");
 
 							if (adminId == "admin" && adminPwd == "admin"){
-								location.href = "../html/admin_section/add-listing-with-menu-list.html"
+								location.href = "../html/admin_section/index.jsp"
 
 							} else {
 								alert("관리자 이용 가능 메뉴입니다")

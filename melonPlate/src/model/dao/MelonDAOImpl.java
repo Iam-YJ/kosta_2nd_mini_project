@@ -10,7 +10,7 @@ import java.util.List;
 import model.dto.Melon;
 import util.DbUtil;
 
-public class MelonDAOImpl implements MelonDAO{
+public class MelonDAOImpl implements MelonDAO {
 
 	/**
 	 * 조회수 정렬
@@ -26,8 +26,8 @@ public class MelonDAOImpl implements MelonDAO{
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int resNo = rs.getInt(1);
 				String resName = rs.getString(2);
 				String resPlace = rs.getString(3);
@@ -37,40 +37,39 @@ public class MelonDAOImpl implements MelonDAO{
 				int resHits = rs.getInt(7);
 				int resGrade = rs.getInt(8);
 				String resPrice = rs.getString(9);
-				
-				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
 				list.add(melon);
 			}
-		}finally {
+		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
 	}
 
-	   @Override
-	   public List<Melon> selectByGrade() throws SQLException{
-	      Connection con = null;
-	      PreparedStatement ps = null;
-	      ResultSet rs= null;
-	      List<Melon> list = new ArrayList<>();
-	      String sql = "SELECT * FROM RESTAURANT ORDER BY RES_GRADE DESC";
-	      try {
-	         con = DbUtil.getConnection();
-	         ps = con.prepareStatement(sql);
-	         rs= ps.executeQuery();
-	         while(rs.next()) {
-	            Melon melon = 
-	                  new Melon(rs.getInt(1),rs.getString(2),rs.getString(3),
-	                        rs.getString(4),rs.getString(5),rs.getString(6),
-	                        rs.getInt(7),rs.getInt(8),rs.getString(9));
-	            list.add(melon);
-	         }
-	      }finally {
-	         DbUtil.dbClose(rs, ps, con);
-	      }
-	      return list;
-	   }
+	@Override
+	public List<Melon> selectByGrade() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<Melon> list = new ArrayList<>();
+		String sql = "SELECT * FROM RESTAURANT ORDER BY RES_GRADE DESC";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Melon melon = new Melon(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
+				list.add(melon);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
+	}
 
 	@Override
 	public List<Melon> selectByType(String type) throws SQLException {
@@ -84,8 +83,8 @@ public class MelonDAOImpl implements MelonDAO{
 			ps = con.prepareStatement(sql);
 			ps.setString(1, type);
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int resNo = rs.getInt(1);
 				String resName = rs.getString(2);
 				String resPlace = rs.getString(3);
@@ -95,18 +94,18 @@ public class MelonDAOImpl implements MelonDAO{
 				int resHits = rs.getInt(7);
 				int resGrade = rs.getInt(8);
 				String resPrice = rs.getString(9);
-				
-				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
 				list.add(melon);
 			}
-		}finally {
+		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
 	}
-	
-	
+
 	/**
 	 * 평점 정렬
 	 */
@@ -116,14 +115,14 @@ public class MelonDAOImpl implements MelonDAO{
 		PreparedStatement ps = null;
 		String sql = "UPDATE RESTAURANT SET RES_HITS = RES_HITS+1 WHERE RES_NO = ?";
 		int result = 0;
-		
+
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, resNo);
 			result = ps.executeUpdate();
-			
-		}finally {
+
+		} finally {
 			DbUtil.dbClose(ps, con);
 		}
 		return result;
@@ -137,15 +136,15 @@ public class MelonDAOImpl implements MelonDAO{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql  = "SELECT * FROM RESTAURANT WHERE RES_PLACE LIKE ?";
+		String sql = "SELECT * FROM RESTAURANT WHERE RES_PLACE LIKE ?";
 		List<Melon> list = new ArrayList<Melon>();
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + area + "%");
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int resNo = rs.getInt(1);
 				String resName = rs.getString(2);
 				String resPlace = rs.getString(3);
@@ -155,12 +154,13 @@ public class MelonDAOImpl implements MelonDAO{
 				int resHits = rs.getInt(7);
 				int resGrade = rs.getInt(8);
 				String resPrice = rs.getString(9);
-				
-				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
 				list.add(melon);
 			}
-		}finally {
+		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
@@ -176,15 +176,15 @@ public class MelonDAOImpl implements MelonDAO{
 		ResultSet rs = null;
 		String sql = "SELECT * FROM RESTAURANT WHERE RES_NAME LIKE ?";
 		List<Melon> list = new ArrayList<Melon>();
-		
+
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, "%"+resName+"%");
-			
+			ps.setString(1, "%" + resName + "%");
+
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int resNo = rs.getInt(1);
 				resName = rs.getString(2);
 				String resPlace = rs.getString(3);
@@ -194,13 +194,14 @@ public class MelonDAOImpl implements MelonDAO{
 				int resHits = rs.getInt(7);
 				int resGrade = rs.getInt(8);
 				String resPrice = rs.getString(9);
-				
-				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
 				list.add(melon);
 			}
-			
-		}finally {
+
+		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
@@ -216,14 +217,14 @@ public class MelonDAOImpl implements MelonDAO{
 		ResultSet rs = null;
 		String sql = "SELECT * FROM RESTAURANT WHERE RES_PRICE LIKE ?";
 		List<Melon> list = new ArrayList<Melon>();
-		
+
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, price.charAt(0)+"%");
+			ps.setString(1, price.charAt(0) + "%");
 			rs = ps.executeQuery();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int resNo = rs.getInt(1);
 				String resName = rs.getString(2);
 				String resPlace = rs.getString(3);
@@ -233,12 +234,13 @@ public class MelonDAOImpl implements MelonDAO{
 				int resHits = rs.getInt(7);
 				int resGrade = rs.getInt(8);
 				String resPrice = rs.getString(9);
-				
-				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
 				list.add(melon);
 			}
-		}finally {
+		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
@@ -246,8 +248,10 @@ public class MelonDAOImpl implements MelonDAO{
 
 	@Override
 	public List<Melon> selectRecommend() throws SQLException {
-		
+
 		return null;
 	}
+
+	
 
 }

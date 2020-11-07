@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import model.dto.Melon;
 import model.dto.Noti;
@@ -46,5 +47,15 @@ public interface AdminDAO {
 	 * */
 	
 	int banUser(String userId) throws SQLException;
+	
+	/**
+	 * 공지사항 조회
+	 */
+	List<Noti> selectNoti() throws SQLException;
+	
+	/*
+	 * 식당 고유 번호 검색
+	 */
+	int selectByResNum(String resName) throws SQLException;
 	
 }

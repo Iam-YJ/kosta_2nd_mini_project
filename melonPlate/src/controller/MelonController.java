@@ -68,15 +68,23 @@ public class MelonController implements Controller {
 
 	public ModelAndView selectByArea(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 서비스 호출 -> dao 호출해서 그결과 받아서 이동
+		System.out.println("MelonoController의 selectByArea Controller 요청");
 
-		String area = request.getParameter("area");
-		List<Melon> list = MelonService.selectByArea(area);
-		request.setAttribute("list", list);
+//		String area = request.getParameter("area");
+		List<Melon> list = MelonService.selectByArea("강남");
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("");
+
+		request.setAttribute("res", list);
+		
+		for(Melon m : list) {
+			System.out.println(m);
+		}
+		
+		mv.setViewName("/html/admin_section/deleteResaturant.jsp");
 
 		return mv;
+
 	}
 
 	public ModelAndView selectByResName(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -91,7 +99,7 @@ public class MelonController implements Controller {
 
 		return mv;
 	}
-	
+
 	public ModelAndView selectByPrice(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 서비스 호출 -> dao 호출해서 그결과 받아서 이동
 

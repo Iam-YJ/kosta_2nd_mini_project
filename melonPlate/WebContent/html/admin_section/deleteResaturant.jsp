@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ 
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,50 +12,50 @@
   <meta name="description" content="">
   <meta name="author" content="Ansonika">
   <title>FOOGRA - Admin dashboard</title>
-   
+	
   <!-- Favicons-->
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
-   
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/admin_section/img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-144x144-precomposed.png">
+	
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Main styles -->
-  <link href="css/admin.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/css/admin.css" rel="stylesheet">
   <!-- Icon fonts-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Your custom styles -->
-  <link href="css/custom.css" rel="stylesheet">
-   
+  <link href="${pageContext.request.contextPath}/html/admin_section/css/custom.css" rel="stylesheet">
+	
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-      <a class="navbar-brand" href="index.jsp"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+      <a class="navbar-brand" href="index.html"><img src="${pageContext.request.contextPath}/html/admin_section/img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                  <a class="nav-link" href="index.jsp">
+                  <a class="nav-link" href="index.html">
                       <i class="fa fa-fw fa-dashboard"></i>
                       <span class="nav-link-text">Dashboard</span>
                   </a>
               </li>
-              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Board">
-                  <a class="nav-link" href="${pageContext.request.contextPath}/dispatcher?key=admin&methodName=selectNoti">
+              <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
+                  <a class="nav-link" href="messages.html">
                       <i class="fa fa-fw fa-envelope-open"></i>
-                      <span class="nav-link-text">공지사항</span>
+                      <span class="nav-link-text">Messages</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookings">
-                  <a class="nav-link" href="bookings.jsp">
+                  <a class="nav-link" href="bookings.html">
                       <i class="fa fa-fw fa-calendar-check-o"></i>
                       <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                   </a>
@@ -66,24 +67,24 @@
                   </a>
                   <ul class="sidenav-second-level collapse" id="collapseMylistings">
                       <li>
-                          <a href="listings.jsp">Pending <span class="badge badge-pill badge-primary">6</span></a>
+                          <a href="listings.html">Pending <span class="badge badge-pill badge-primary">6</span></a>
                       </li>
                       <li>
-                          <a href="listings.jsp">Active <span class="badge badge-pill badge-success">6</span></a>
+                          <a href="listings.html">Active <span class="badge badge-pill badge-success">6</span></a>
                       </li>
                       <li>
-                          <a href="listings.jsp">Expired <span class="badge badge-pill badge-danger">6</span></a>
+                          <a href="listings.html">Expired <span class="badge badge-pill badge-danger">6</span></a>
                       </li>
                   </ul>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                  <a class="nav-link" href="reviews.jsp">
+                  <a class="nav-link" href="reviews.html">
                       <i class="fa fa-fw fa-star"></i>
                       <span class="nav-link-text">Reviews</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                  <a class="nav-link" href="bookmarks.jsp">
+                  <a class="nav-link" href="bookmarks.html">
                       <i class="fa fa-fw fa-heart"></i>
                       <span class="nav-link-text">Bookmarks</span>
                   </a>
@@ -101,19 +102,19 @@
                     </a>
                 </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders Page">
-                  <a class="nav-link" href="orders.jsp">
+                  <a class="nav-link" href="orders.html">
                       <i class="fa fa-fw fa-shopping-basket"></i>
                       <span class="nav-link-text">Orders Page</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Edit Order">
-                  <a class="nav-link" href="orders.jsp">
+                  <a class="nav-link" href="orders.html">
                       <i class="fa fa-fw fa-pencil"></i>
                       <span class="nav-link-text">Edit Order</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                  <a class="nav-link" href="user-profile.jsp">
+                  <a class="nav-link" href="user-profile.html">
                       <i class="fa fa-fw fa-user"></i>
                       <span class="nav-link-text">My Profile</span>
                   </a>
@@ -125,10 +126,10 @@
                   </a>
                   <ul class="sidenav-second-level collapse" id="collapseComponents">
                       <li>
-                          <a href="charts.jsp">Charts</a>
+                          <a href="charts.html">Charts</a>
                       </li>
                       <li>
-                          <a href="tables.jsp">Tables</a>
+                          <a href="tables.html">Tables</a>
                       </li>
                   </ul>
               </li>
@@ -243,50 +244,102 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">관리자 Form</a>
+          <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">공지사항</li>
+        <li class="breadcrumb-item active">Orders</li>
       </ol>
-      
-      <!-- Example DataTables Card-->
+		<!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>공지사항</div>
+          <i class="fa fa-table"></i> Orders Table Example</div>
         <div class="card-body">
           <div class="table-responsive">
-            
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>NO</th>
-                  <th>USERNO</th>
-                  <th>TITLE</th>
-                  <th>CONTENT</th>
-                  <th>DATE</th>
-                  <th>HITS</th>
-                  
+                
+
+                  <th>Restaurant No</th>
+                  <th>Restaurant Name</th>
+                  <th>Restaurant Place</th>
+                  <th>Restaurant Tel</th>
+                  <th>Restaurant Type</th>
+                  <th>Restaurant Hits</th>
+                  <th>Restaurant Grade</th>
+                  <th>Restaurant Price</th>
+                  <th>Restaurant Edit</th>
                 </tr>
               </thead>
-              
+             
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+              <c:choose>
+    <c:when test="${empty requestScope.res}">
+	   <tr>
+        <td colspan="5">
+            <p align="center"><b><span style="font-size:9pt;">등록된 식당이 없습니다.</span></b></p>
+        </td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+    
+	
+	<c:forEach items="${requestScope.res}" var="res">
+		    <tr onmouseover="this.style.background='#eaeaea'"
+		        onmouseout="this.style.background='white'">
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resNo}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resName}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resPlace}</span></p>
+		        </td>
+
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		           ${res.resTel}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resType}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resHits}</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resGrade}</span></p>
+		        </td>
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${res.resPrice}</span></p>
+		        </td>
+<script>
+var state = { 'page_id': 1, 'user_id': 5 }; 
+var title = null; 
+var url = 'dispatcher?key=admin&methodName=deleteRes';
+</script>
+		        <td><a href="" onclick="history.pushState(state, title, url);"><strong>Edit</strong></a> | <a href="${pageContext.request.contextPath}/dispatcher?key=admin&methodName=deleteRes"><strong>Delete</strong></a></td>
+
+		    </tr>
+    </c:forEach>
+	</c:otherwise>
+    </c:choose>
               </tbody>
-            </table> 
+            </table>
           </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-     <!-- /tables-->
-     </div>
-     <!-- /container-fluid-->
-      </div>
+	  <!-- /tables-->
+	  </div>
+	  <!-- /container-fluid-->
+   	</div>
     <!-- /container-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -313,7 +366,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.jsp">Logout</a>
+            <a class="btn btn-primary" href="login.html">Logout</a>
           </div>
         </div>
       </div>
@@ -335,6 +388,6 @@
     <script src="js/admin.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/admin-datatables.js"></script>
-   
+	
 </body>
 </html>
