@@ -13,7 +13,7 @@ public class MelonService {
 		MelonDAO melonDAO = new MelonDAOImpl();
 		// dao를 호출하고 그결과를 리턴
 		List<Melon> list = melonDAO.selectByGrade();
-
+		System.out.println("list : " + list);
 		return list;
 	}
 
@@ -46,7 +46,7 @@ public class MelonService {
 		// dao를 호출하고 그결과를 리턴
 		System.out.println("hi");
 		List<Melon> list = melonDAO.selectByArea(area);
-
+		System.out.println("hi");
 		return list;
 	}
 
@@ -55,6 +55,20 @@ public class MelonService {
 		// dao를 호출하고 그결과를 리턴
 		List<Melon> list = melonDAO.selectByResName(resName);
 
+		return list;
+	}
+
+	public static Melon selectDetailRes(int resNo) throws SQLException {
+		MelonDAO melonDAO = new MelonDAOImpl();
+		Melon melon = melonDAO.selectDetailRes(resNo);
+		
+		return melon;
+	}
+
+	public static List<Melon> selectAll() throws SQLException {
+		MelonDAO melonDAO = new MelonDAOImpl();
+		List<Melon> list = melonDAO.selectAll();
+		
 		return list;
 	}
 	

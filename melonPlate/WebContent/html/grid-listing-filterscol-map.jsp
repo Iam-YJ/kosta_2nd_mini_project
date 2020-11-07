@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,14 +23,14 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="css/bootstrap_customized.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/bootstrap_customized.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/style.css" rel="stylesheet">
 
     <!-- SPECIFIC CSS -->
-    <link href="css/listing.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/listing.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -38,8 +39,8 @@
 	<header class="header_in clearfix">
 		<div class="container">
 		<div id="logo">
-			<a href="index.html">
-				<img src="img/logo_sticky.svg" width="140" height="35" alt="">
+			<a href="html/index.jsp">
+				<img src="${pageContext.request.contextPath}/html/img/logo_sticky.svg" width="140" height="35" alt="">
 			</a>
 		</div>
 		<ul id="top_menu">
@@ -55,7 +56,7 @@
 				<a href="#0" class="open_close">
 					<i class="icon_close"></i><span>Menu</span>
 				</a>
-				<a href="index.html"><img src="img/logo.svg" width="140" height="35" alt=""></a>
+				<a href="index.html"><img src="${pageContext.request.contextPath}/html/img/logo.svg" width="140" height="35" alt=""></a>
 			</div>
 			<ul>
 				<li class="submenu">
@@ -87,7 +88,7 @@
 						</li>
 						<li class="third-level"><a href="#0">Detail pages</a>
 							<ul>
-								<li><a href="detail-restaurant.html">Detail page 1</a></li>
+								<li><a href="html/detail-restaurant.jsp">Detail page 1</a></li>
 								<li><a href="detail-restaurant-2.html">Detail page 2</a></li>
 								<li><a href="detail-restaurant-3.html">Mobile Fixed Booking</a></li>
 								<li><a href="detail-restaurant-delivery.html">Delivery/Takeaway</a></li>
@@ -151,7 +152,7 @@
 				                <li>Page active</li>
 				            </ul>
 		       	 		</div>
-		        		<h1>145 restaurants in Convent Street 2983</h1>
+		        		<h1>서울시 맛집 정보</h1>
 		    		</div>
 		    		<div class="col-xl-4 col-lg-5 col-md-5">
 		    			<div class="search_bar_list">
@@ -176,60 +177,41 @@
 					<a class="btn_map d-flex align-items-center justify-content-center" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" ><span class="btn_map_txt" data-text-swap="Hide Map" data-text-original="View on Map">View on Map</span></a>
 					<div class="sort_select">
 							<select name="sort" id="sort">
-                                <option value="popularity" selected="selected">Sort by Popularity</option>
-                                <option value="rating">Sort by Average rating</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by Price: low to high</option>
-                                <option value="price-desc">Sort by Price: high to low</option>
+                                <option value="popularity" selected="selected">조회순</option>
+                                <option value="rating">평점순</option>
+                                <option value="price">낮은가격순</option>
+                                <option value="price-desc">높은가격순</option>
 							</select>
 						</div>
 						<a class="btn_map mobile btn_filters" data-toggle="collapse" href="#collapseMap"><i class="icon_pin_alt"></i></a>
-						<a href="#0" class="open_filters btn_filters"><i class="icon_adjust-vert"></i><span>Filters</span></a>
+						<a href="#0" class="open_filters btn_filters"><i class="icon_adjust-vert"></i><span>필터</span></a>
 					</div>
 					<div class="filter_col">
 						<div class="inner_bt"><a href="#" class="open_filters"><i class="icon_close"></i></a></div>
 						<div class="filter_type">
-							<h4><a href="#filter_1" data-toggle="collapse" class="opened">Categories</a></h4>
+							<h4><a href="#filter_1" data-toggle="collapse" class="opened">음식종류</a></h4>
 							<div class="collapse show" id="filter_1">
 								<ul>
 								    <li>
-								        <label class="container_check">Pizza - Italian <small>12</small>
+								        <label class="container_check">한식 <small>12</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Japanese - Sushi <small>24</small>
+								        <label class="container_check">중식 <small>24</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Burghers <small>23</small>
+								        <label class="container_check">양식 <small>23</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Vegetarian <small>11</small>
-								            <input type="checkbox">
-								            <span class="checkmark"></span>
-								        </label>
-								    </li>
-								    <li>
-								        <label class="container_check">Bakery <small>18</small>
-								            <input type="checkbox">
-								            <span class="checkmark"></span>
-								        </label>
-								    </li>
-								    <li>
-								        <label class="container_check">Chinese <small>12</small>
-								            <input type="checkbox">
-								            <span class="checkmark"></span>
-								        </label>
-								    </li>
-								    <li>
-								        <label class="container_check">Mexican <small>15</small>
+								        <label class="container_check">카페 <small>11</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
@@ -240,29 +222,29 @@
 						</div>
 						<!-- /filter_type -->
 						<div class="filter_type">
-							<h4><a href="#filter_2" data-toggle="collapse" class="closed">Rating</a></h4>
+							<h4><a href="#filter_2" data-toggle="collapse" class="closed">평점</a></h4>
 							<div class="collapse" id="filter_2">
 								<ul>
 								    <li>
-								        <label class="container_check">Superb 9+ <small>06</small>
+								        <label class="container_check">최고에요 4+ <small>06</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Very Good 8+ <small>12</small>
+								        <label class="container_check">맛있어요 3+ <small>12</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Good 7+ <small>17</small>
+								        <label class="container_check">괜찮아요 2+ <small>17</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
 								    </li>
 								    <li>
-								        <label class="container_check">Pleasant 6+ <small>43</small>
+								        <label class="container_check">별로에요 1+ <small>43</small>
 								            <input type="checkbox">
 								            <span class="checkmark"></span>
 								        </label>
@@ -271,38 +253,43 @@
 							</div>
 						</div>
 						<!-- /filter_type -->
-						<div class="filter_type">
-							<h4><a href="#filter_3" data-toggle="collapse" class="closed">Distance</a></h4>
-							<div class="collapse" id="filter_3">
-                                <div class="distance"> Radius around selected destination <span></span> km</div>
-								<div class="add_bottom_15"><input type="range" min="10" max="100" step="10" value="30" data-orientation="horizontal"></div>
-							</div>
-						</div>
 						<!-- /filter_type -->
 						<div class="filter_type">
-							<h4><a href="#filter_4" data-toggle="collapse" class="closed">Price</a></h4>
+							<h4><a href="#filter_4" data-toggle="collapse" class="closed">가격대</a></h4>
 							<div class="collapse" id="filter_4">
 								<ul>
 										<li>
-											<label class="container_check">$0 — $50<small>11</small>
+											<label class="container_check">10000원대<small>11</small>
 											  <input type="checkbox">
 											  <span class="checkmark"></span>
 											</label>
 										</li>
 										<li>
-											<label class="container_check">$50 — $100<small>08</small>
+											<label class="container_check">20000원대<small>08</small>
 											  <input type="checkbox">
 											  <span class="checkmark"></span>
 											</label>
 										</li>
 										<li>
-											<label class="container_check">$100 — $150<small>05</small>
+											<label class="container_check">30000원대<small>05</small>
 											  <input type="checkbox">
 											  <span class="checkmark"></span>
 											</label>
 										</li>
 										<li>
-											<label class="container_check">$150 — $200<small>18</small>
+											<label class="container_check">40000원대<small>18</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+											<label class="container_check">50000원대<small>18</small>
+											  <input type="checkbox">
+											  <span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+											<label class="container_check">60000원대<small>18</small>
 											  <input type="checkbox">
 											  <span class="checkmark"></span>
 											</label>
@@ -312,270 +299,37 @@
 						</div>
 						<!-- /filter_type -->
 						<div class="buttons">
-							<a href="#0" class="btn_1 full-width">Filter</a>
+							<a href="#0" class="btn_1 full-width">필터</a>
 						</div>
 					</div>
 				</aside>
-
+				
 				<div class="col-lg-9">
 					<div class="row">
+					
+					<c:forEach items="${requestScope.list}" var="res">
 						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
 							<div class="strip">
 							    <figure>
-							    	<span class="ribbon off">-30%</span>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_1.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Pizza</small>
+							        <img src="${pageContext.request.contextPath}/html/img/2017010800015_0.jpg" data-src="${pageContext.request.contextPath}/html/img/location_1.jpg" class="${pageContext.request.contextPath}/html/2017010800015_0.jpg" alt="">
+							        <a href="dispatcher?key=melon&methodName=selectDetailRes&resNo=${res.resNo}" class="strip_info">
+							            <small>${res.resType}</small>
 							            <div class="item_title">
-							                <h3>Da Alfredo</h3>
-							                <small>27 Old Gloucester St</small>
+							                <h3>${res.resName}</h3>
+							                <small>${res.resPlace}</small>
 							            </div>
 							        </a>
 							    </figure>
 							    <ul>
-							        <li><span>Avg. Price 24$</span></li>
+							        <li><span>평균 ${res.resPrice}</span></li>
 							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
+							        	<div class="score"><span>평점<em>${res.resHits}</em></span><strong>${res.resGrade}</strong></div>
 							        </li>
 							    </ul>
 							</div>
 						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							    	<span class="ribbon off">-40%</span>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_2.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Burghers</small>
-							            <div class="item_title">
-							                <h3>Best Burghers</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							        <li><span>Avg. Price 14$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_3.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Vegetarian</small>
-							            <div class="item_title">
-							                <h3>Vego Life</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							       <li><span>Avg. Price 21$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.5</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							    	<span class="ribbon off">-25%</span>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_4.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Japanese</small>
-							            <div class="item_title">
-							                <h3>Sushi Temple</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 12$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.5</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							    	<span class="ribbon off">-30%</span>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_5.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Pizza</small>
-							            <div class="item_title">
-							                <h3>Auto Pizza</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 25$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>7.0</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_6.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Burghers</small>
-							            <div class="item_title">
-							                <h3>Alliance</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 18$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							    	<span class="ribbon off">-30%</span>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_7.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Chinese</small>
-							            <div class="item_title">
-							                <h3>Alliance</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 25$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_8.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Sushi</small>
-							            <div class="item_title">
-							                <h3>Dragon Tower</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 28$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_9.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Mexican</small>
-							            <div class="item_title">
-							                <h3>El Paso Tacos</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 29$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_10.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Bakery</small>
-							            <div class="item_title">
-							                <h3>Monnalisa</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 29$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_11.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Mexican</small>
-							            <div class="item_title">
-							                <h3>Guachamole</h3>
-							                <small>135 Newtownards Road</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 29$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
-						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-							<div class="strip">
-							    <figure>
-							        <img src="img/lazy-placeholder.png" data-src="img/location_12.jpg" class="img-fluid lazy" alt="">
-							        <a href="detail-restaurant.html" class="strip_info">
-							            <small>Chinese</small>
-							            <div class="item_title">
-							                <h3>Pechino Express</h3>
-							                <small>27 Old Gloucester St</small>
-							            </div>
-							        </a>
-							    </figure>
-							    <ul>
-							         <li><span>Avg. Price 29$</span></li>
-							        <li>
-							        	<div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-							        </li>
-							    </ul>
-							</div>
-						</div>
-						<!-- /strip grid -->
+						</c:forEach>
+						
 					</div>
 					<!-- /row -->
 					<div class="pagination_fg">
@@ -648,10 +402,10 @@
 						<div class="follow_us">
 							<h5>Follow Us</h5>
 							<ul>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/twitter_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/facebook_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/instagram_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/youtube_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/twitter_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/facebook_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/instagram_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/youtube_icon.svg" alt="" class="lazy"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -680,14 +434,14 @@
 								</select>
 							</div>
 						</li>
-						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
+						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
 					</ul>
 				</div>
 				<div class="col-lg-6">
 					<ul class="additional_links">
 						<li><a href="#0">Terms and conditions</a></li>
 						<li><a href="#0">Privacy</a></li>
-						<li><span>© Foogra</span></li>
+						<li><span>© MelonPlate</span></li>
 					</ul>
 				</div>
 			</div>
@@ -748,18 +502,90 @@
 	<!-- /Sign In Modal -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/common_scripts.min.js"></script>
-    <script src="js/common_func.js"></script>
-    <script src="assets/validate.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/common_scripts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/common_func.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/validate.js"></script>
 
     <!-- SPECIFIC SCRIPTS -->
-    <script src="js/sticky_sidebar.min.js"></script>
-    <script src="js/specific_listing.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/sticky_sidebar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/specific_listing.js"></script>
 
     <!-- Map -->
-    <script src="js/main_map_scripts.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    <script src="${pageContext.request.contextPath}/html/js/main_map_scripts.js"></script>
+	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=57435e874fa64740b31e8b064eae4495&libraries=services"></script>
+	<script>
+	function getLocation() {
+	  if (navigator.geolocation) { 
+	    navigator.geolocation.getCurrentPosition(function(position) {
+	      sessionStorage.setItem("latitude", position.coords.latitude);
+	      sessionStorage.setItem("longitude", position.coords.longitude);
+	    }, function(error) {
+	      console.error(error);
+	    }, {
+	      enableHighAccuracy: false,
+	      maximumAge: 0,
+	      timeout: Infinity
+	    });
+	  } else {
+	    alert('GPS를 지원하지 않습니다');
+	  }
+	}
 
+	getLocation();
+	/////////////////////////////////////////////////////////////////////////////////////////
+	//
+	var coordXY = document.getElementById("coordXY"); 
+	var container = document.getElementById('map'); 
+	var options = { center: new kakao.maps.LatLng(sessionStorage.getItem("latitude"), sessionStorage.getItem("longitude")), 
+			level: 4
+	}; 
+	var map = new kakao.maps.Map(container, options); 
+
+	var mapTypeControl = new kakao.maps.MapTypeControl(); 
+	map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT); 
+	var zoomControl = new kakao.maps.ZoomControl(); 
+	map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT); 
+
+	var geocoder = new kakao.maps.services.Geocoder(); 
+
+	geocoder.addressSearch('경기도', function(result, status) { 
+	var 데이터 = [
+			[37.402019, 127.108935, '<div style="padding:5px;">테</div>'],
+			[37.401062, 127.107348, '<div style="padding:5px;">스</div>'],
+			[37.401984, 127.110258, '<div style="padding:5px;">트</div>'],
+			[37.401212, 127.110755, '<div style="padding:5px;">!</div>']
+		];
+		if (status === kakao.maps.services.Status.OK) { 
+			var coords = new kakao.maps.LatLng(sessionStorage.getItem("latitude"), sessionStorage.getItem("longitude")); 
+			yy = result[0].x; xx = result[0].y; 
+
+			var markers = []; 
+			for (var i = 0; i < 데이터.length; i++ ) {
+				
+				var marker = new kakao.maps.Marker({
+					position: new kakao.maps.LatLng(데이터[i][0], 데이터[i][1]), 
+					map: map 
+				});
+
+				iwPosition = new kakao.maps.LatLng(데이터[i][0], 데이터[i][1]),
+			    iwRemoveable = true;
+
+				var infowindow = new kakao.maps.InfoWindow({
+				    map: map, 
+				    position : iwPosition, 
+				    content : 데이터[i][2],
+				    removable : iwRemoveable
+				});
+
+				infowindow.open(map, marker);
+				markers.push(marker);
+			}
+			
+			map.setCenter(coords); 
+			var markerPosition = marker.getPosition(); $(window).on('resize', function(){ map.relayout(); map.setCenter(markerPosition); }); 
+			} 
+		else { console.log('에러'); } }); 
+</script>
 
 </body>
 </html>

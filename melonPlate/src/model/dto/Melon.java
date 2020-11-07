@@ -12,8 +12,11 @@ public class Melon {
 	private String resPrice;
 
 	public Melon() {}
-
 	
+	public Melon(String resName, String resPlace) {
+		this.resName = resName;
+		this.resPlace = resPlace;
+	}
 	
 	public Melon(String resName, String resPlace, String resTel, String resType, String resPhoto, String resPrice) {
 		super();
@@ -24,8 +27,6 @@ public class Melon {
 		this.resPhoto = resPhoto;
 		this.resPrice = resPrice;
 	}
-
-
 
 	public Melon(int resNo, String resName, String resPlace, String resTel, String resType, String resPhoto,
 			int resHits, double resGrade, String resPrice) {

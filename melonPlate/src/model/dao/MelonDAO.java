@@ -44,7 +44,14 @@ public interface MelonDAO {
 	/*
 	 * 주변 식당 추천(내 위치 기준) 
 	 * */
-	List<Melon> selectRecommend() throws SQLException;
+
+	List<Melon> selectRecommend(double lat, double lon) throws SQLException;
 	
+	/*
+	 * 식당 상세보기 
+	 * */
+	Melon selectDetailRes(int resNo) throws SQLException;
+
+	List<Melon> selectAll() throws SQLException;
 
 }

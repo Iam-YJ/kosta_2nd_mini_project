@@ -13,7 +13,6 @@ import model.dto.Noti;
 import model.dto.User;
 import model.service.UserService;
 
-@WebServlet("/user")
 public class UserController implements Controller {
 	
 	UserService service = new UserService();

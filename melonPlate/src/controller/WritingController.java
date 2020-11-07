@@ -12,7 +12,6 @@ import model.dto.WriList;
 import model.dto.Writing;
 import model.service.WritingService;
 
-@WebServlet("/writing")
 public class WritingController implements Controller {
 	
 	WritingService service = new WritingService();

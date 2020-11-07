@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.dto.Melon;
 import model.service.AdminService;
 
-@WebServlet("/admin")
 
 public class AdminController implements Controller {
 

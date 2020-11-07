@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.dto.Reply;
 import model.service.ReplyService;
 
-@WebServlet("/review")
 public class ReplyController implements Controller {
 	
 	ReplyService service = new ReplyService();

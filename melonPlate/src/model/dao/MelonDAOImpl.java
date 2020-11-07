@@ -247,11 +247,88 @@ public class MelonDAOImpl implements MelonDAO {
 	}
 
 	@Override
-	public List<Melon> selectRecommend() throws SQLException {
+
+	public List<Melon> selectRecommend(double lat, double lon) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "";
+
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
 
 		return null;
 	}
 
-	
+	@Override
+	public Melon selectDetailRes(int resNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM RESTAURANT WHERE RES_NO = ?";
+		Melon melon = null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, resNo);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				resNo = rs.getInt(1);
+				String resName = rs.getString(2);
+				String resPlace = rs.getString(3);
+				String resTel = rs.getString(4);
+				String resType = rs.getString(5);
+				String resPhoto = rs.getString(6);
+				int resHits = rs.getInt(7);
+				int resGrade = rs.getInt(8);
+				String resPrice = rs.getString(9);
+
+				melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return melon;
+	}
+
+	@Override
+	public List<Melon> selectAll() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM RESTAURANT";
+		List<Melon> list = new ArrayList<Melon>();
+
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				int resNo = rs.getInt(1);
+				String resName = rs.getString(2);
+				String resPlace = rs.getString(3);
+				String resTel = rs.getString(4);
+				String resType = rs.getString(5);
+				String resPhoto = rs.getString(6);
+				int resHits = rs.getInt(7);
+				int resGrade = rs.getInt(8);
+				String resPrice = rs.getString(9);
+
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade,
+						resPrice);
+
+				list.add(melon);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
+	}
 
 }
