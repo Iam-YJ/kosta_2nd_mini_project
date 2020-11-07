@@ -12,24 +12,24 @@
     <title>Foogra - Discover & Book the best restaurants at the best price</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="img/favicon.ico" type="${pageContext.request.contextPath}/html/image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/img/apple-touch-icon-144x144-precomposed.png">
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="css/bootstrap_customized.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/bootstrap_customized.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/style.css" rel="stylesheet">
 
     <!-- SPECIFIC CSS -->
-    <link href="css/detail-page.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/detail-page.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -38,8 +38,8 @@
 	<header class="header_in clearfix">
 		<div class="container">
 		<div id="logo">
-			<a href="index.html">
-				<img src="img/logo_sticky.svg" width="140" height="35" alt="">
+			<a href="html/index.jsp">
+				<img src="${pageContext.request.contextPath}/html/img/logo_sticky.svg" width="140" height="35" alt="">
 			</a>
 		</div>
 		<ul id="top_menu">
@@ -55,7 +55,7 @@
 				<a href="#0" class="open_close">
 					<i class="icon_close"></i><span>Menu</span>
 				</a>
-				<a href="index.html"><img src="img/logo.svg" width="140" height="35" alt=""></a>
+				<a href="index.html"><img src="${pageContext.request.contextPath}/html/img/logo.svg" width="140" height="35" alt=""></a>
 			</div>
 			<ul>
 				<li class="submenu">
@@ -141,23 +141,24 @@
 	
 	<main>
 
-		<div class="hero_in detail_page background-image" data-background="url(img/restaurant_detail_hero.jpg)">
+		<div class="hero_in detail_page background-image" style="
+background-image: URL(${pageContext.request.contextPath}/html/${param.resPhoto});">
 			<div class="wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 				
 				<div class="container">
 					<div class="main_info">
 						<div class="row">
 							<div class="col-xl-4 col-lg-5 col-md-6">
-								<div class="head"><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></div>
-								<h1>Pizzeria da Alfredo</h1>
-								ITALIAN - 27 Old Gloucester St, 4530 - <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank">Get directions</a>
+								<div class="head"><div class="score"><span>Superb<em>350 Reviews</em></span><strong>${param.resGrade}</strong></div></div>
+								<h1>${param.resName}</h1>
+								${param.resType} - 27 Old Gloucester St, 4530 - <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank">Get directions</a>
 							</div>
 							<div class="col-xl-8 col-lg-7 col-md-6">
 								<div class="buttons clearfix">
 									<span class="magnific-gallery">
-										<a href="img/detail_1.jpg" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
-										<a href="img/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
-										<a href="img/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+										<a href="${pageContext.request.contextPath}/html/img/detail_1.jpg" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
+										<a href="${pageContext.request.contextPath}/html/img/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+										<a href="${pageContext.request.contextPath}/html/img/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
 									</span>
 									<a href="#0" class="btn_hero wishlist"><i class="icon_heart"></i>Wishlist</a>
 								</div>
@@ -201,11 +202,11 @@
 		                            	<div class="add_bottom_25"></div>
 		                                <h2>Pictures from our users</h2>
 		                                <div class="pictures magnific-gallery clearfix">
-		                                    <figure><a href="img/detail_gallery/detail_1.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_1.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_2.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_3.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_4.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_4.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_5.jpg" title="Photo title" data-effect="mfp-zoom-in"><span class="d-flex align-items-center justify-content-center">+10</span><img src="img/thumb_detail_placeholder.jpg" data-src="img/thumb_detail_5.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_1.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_1.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_2.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_3.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_4.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_4.jpg" class="lazy" alt=""></a></figure>
+		                                    <figure><a href="img/detail_gallery/detail_5.jpg" title="Photo title" data-effect="mfp-zoom-in"><span class="d-flex align-items-center justify-content-center">+10</span><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_5.jpg" class="lazy" alt=""></a></figure>
 		                                </div>
 		                                <!-- /pictures -->
 		                                <h2>Da Alfredo Menu</h2>
@@ -424,7 +425,7 @@
 		                                    <div class="review_card">
 		                                        <div class="row">
 		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar4.jpg" alt=""></figure>
+		                                                <figure><img src="${pageContext.request.contextPath}/html/img/avatar4.jpg" alt=""></figure>
 		                                                <h5>Lukas</h5>
 		                                            </div>
 		                                            <div class="col-md-10 review_content">
@@ -447,7 +448,7 @@
 		                                    <div class="review_card">
 		                                        <div class="row">
 		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar6.jpg" alt=""></figure>
+		                                                <figure><img src="${pageContext.request.contextPath}/html/img/avatar6.jpg" alt=""></figure>
 		                                                <h5>Lukas</h5>
 		                                            </div>
 		                                            <div class="col-md-10 review_content">
@@ -470,7 +471,7 @@
 		                                    <div class="review_card">
 		                                        <div class="row">
 		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar1.jpg" alt=""></figure>
+		                                                <figure><img src="${pageContext.request.contextPath}/html/img/avatar1.jpg" alt=""></figure>
 		                                                <h5>Marika</h5>
 		                                            </div>
 		                                            <div class="col-md-10 review_content">
@@ -490,7 +491,7 @@
 		                                        <!-- /row -->
 		                                        <div class="row reply">
 		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar.jpg" alt=""></figure>
+		                                                <figure><img src="${pageContext.request.contextPath}/html/img/avatar.jpg" alt=""></figure>
 		                                            </div>
 		                                            <div class="col-md-10">
 		                                                <div class="review_content">
@@ -680,10 +681,10 @@
 						<div class="follow_us">
 							<h5>Follow Us</h5>
 							<ul>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/twitter_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/facebook_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/instagram_icon.svg" alt="" class="lazy"></a></li>
-								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/youtube_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/twitter_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/facebook_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/instagram_icon.svg" alt="" class="lazy"></a></li>
+								<li><a href="#0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/youtube_icon.svg" alt="" class="lazy"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -712,7 +713,7 @@
 								</select>
 							</div>
 						</li>
-						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
+						<li><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="${pageContext.request.contextPath}/html/img/cards_all.svg" alt="" width="198" height="30" class="lazy"></li>
 					</ul>
 				</div>
 				<div class="col-lg-6">
@@ -780,15 +781,15 @@
 	<!-- /Sign In Modal -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/common_scripts.min.js"></script>
-    <script src="js/common_func.js"></script>
-    <script src="assets/validate.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/common_scripts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/common_func.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/validate.js"></script>
 
     <!-- SPECIFIC SCRIPTS -->
-    <script src="js/sticky_sidebar.min.js"></script>
-    <script src="js/specific_detail.js"></script>
-	<script src="js/datepicker.min.js"></script>
-	<script src="js/datepicker_func_1.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/sticky_sidebar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/js/specific_detail.js"></script>
+	<script src="${pageContext.request.contextPath}/html/js/datepicker.min.js"></script>
+	<script src="${pageContext.request.contextPath}/html/js/datepicker_func_1.js"></script>
 
 </body>
 </html>

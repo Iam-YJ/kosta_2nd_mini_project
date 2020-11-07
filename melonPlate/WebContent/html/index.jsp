@@ -31,14 +31,14 @@
 	rel="stylesheet">
 
 <!-- BASE CSS -->
-<link href="css/bootstrap_customized.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/html/css/bootstrap_customized.min.css" rel="stylesheet">  <!-- ${pageContext.request.contextPath} -->
+<link href="${pageContext.request.contextPath}/html/css/style.css" rel="stylesheet">
 
 <!-- SPECIFIC CSS -->
-<link href="css/home.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/html/css/home.css" rel="stylesheet">
 
 <!-- YOUR CUSTOM CSS -->
-<link href="css/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/html/css/custom.css" rel="stylesheet">
 
 </head>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -89,7 +89,7 @@
 								<ul>
 									<li><a href="grid-listing-filterscol.html">List
 											default</a></li>
-									<li><a href="grid-listing-filterscol-map.html">List
+									<li><a href="../dispatcher?key=melon&methodName=selectAll">List
 											with map</a></li>
 									<li><a href="listing-map.html">List side map</a></li>
 									<li><a href="grid-listing-filterscol-full-width.html">List
@@ -170,24 +170,17 @@
 						<div class="col-xl-9 col-lg-10 col-md-8">
 							<h1>Discover &amp; Book</h1>
 							<p>The best restaurants at the best price</p>
-							<form method="post" action="grid-listing-filterscol.html">
+							<form method="post" action="../dispatcher?key=melon&methodName=selectByResName">
 								<div class="row no-gutters custom-search-input">
-									<div class="col-lg-4">
+									<div class="col-lg-8">
 										<div class="form-group">
 											<input class="form-control" type="text"
 												placeholder="What are you looking for..."> <i
 												class="icon_search"></i>
 										</div>
 									</div>
-									<div class="col-lg-6">
-										<div class="form-group">
-											<input class="form-control no_border_r" type="text"
-												placeholder="Address, neighborhood..."> <i
-												class="icon_pin_alt"></i>
-										</div>
-									</div>
-									<div class="col-lg-2">
-										<input type="submit" value="Search">
+									<div class="col-lg-4">
+										<input type="submit" value="Search" >
 									</div>
 								</div>
 								<!-- /row -->
