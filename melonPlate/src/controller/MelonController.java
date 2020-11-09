@@ -1,16 +1,20 @@
 package controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dto.Melon;
+import model.dto.Menu;
 import model.service.MelonService;
-
-public class MelonController implements Controller {
-
+import net.sf.json.JSONArray;
+@WebServlet("/melon")
+public class MelonController extends HttpServlet implements Controller{
+	private static final long serialVersionUID = 1L;
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
@@ -73,6 +77,10 @@ public class MelonController implements Controller {
 
 		List<Melon> list = MelonService.selectByArea("강남");
 		
+		System.out.println("selectByArea 호출");
+		String area = request.getParameter("area");
+		request.setAttribute("list", list);
+		System.out.println("Con list : " + list);
 		ModelAndView mv = new ModelAndView();
 
 
@@ -82,25 +90,25 @@ public class MelonController implements Controller {
 		mv.setViewName("/html/admin_section/deleteRestaurant.jsp");
 
 
-
+		mv.setViewName("html/grid-listing-filterscol-map.jsp");
 
 		return mv;
-
 	}
 
 	public ModelAndView selectByResName(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 서비스 호출 -> dao 호출해서 그결과 받아서 이동
 		System.out.println("selectByResName 호출");
 		String resName = request.getParameter("resName");
-		List<Melon> list = MelonService.selectByResName("냠냠");
+		System.out.println(resName);
+		List<Melon> list = MelonService.selectByResName(resName);
 		request.setAttribute("list", list);
 		System.out.println("Con list : " + list);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index.jsp");
+		mv.setViewName("html/grid-listing-filterscol-map.jsp");
 
 		return mv;
 	}
-
+	
 	public ModelAndView selectByPrice(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 서비스 호출 -> dao 호출해서 그결과 받아서 이동
 		System.out.println("selectByPrice 호출");
@@ -118,8 +126,12 @@ public class MelonController implements Controller {
 		System.out.println("selectDetailRes 호출");
 		String resNo = request.getParameter("resNo");
 		Melon melon = MelonService.selectDetailRes(Integer.parseInt(resNo));
+		List<Menu> menu = MelonService.selectMenu(Integer.parseInt(resNo));
 		request.setAttribute("melon", melon);
+		request.setAttribute("menu", menu);
 		
+		System.out.println("melon : " + melon);
+		System.out.println("menu : " + menu);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("html/detail-restaurant.jsp");
 		return mv;
@@ -134,5 +146,15 @@ public class MelonController implements Controller {
 		mv.setViewName("html/grid-listing-filterscol-map.jsp");
 		
 		return mv;
+	}
+	
+	public void selectRecommend(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		System.out.println("selectRecommend 호출.");
+		
+		List<Melon> list = MelonService.selectRecommend();
+		JSONArray arr = JSONArray.fromObject(list);
+		PrintWriter out = response.getWriter();
+		
+		out.println(arr);
 	}
 }

@@ -3,6 +3,7 @@
 <!-- 찐 메인 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +40,6 @@
 	rel="stylesheet">
 
 <!-- SPECIFIC CSS -->
-<link href="${pageContext.request.contextPath}/html/css/home.css"
 	rel="stylesheet">
 
 <!-- YOUR CUSTOM CSS -->
@@ -181,8 +181,8 @@
 								<div class="row no-gutters custom-search-input">
 									<div class="col-lg-8">
 										<div class="form-group">
-											<input class="form-control" type="text"
-												placeholder="What are you looking for..."> <i
+											<input name ="resName" class="form-control" type="text"
+												placeholder="식당명을 입력해주세요..."> <i
 												class="icon_search"></i>
 										</div>
 									</div>
@@ -775,8 +775,10 @@
 							var adminId = prompt("ID를 입력하세요");
 							var adminPwd = prompt("Password를 입력하세요");
 
-							if (adminId == "admin" && adminPwd == "admin") {
-								location.href = "../html/admin_section/adminIndex.jsp"
+							/* if (adminId == "admin" && adminPwd == "admin") {
+								location.href = "../html/admin_section/adminIndex.jsp" */
+							if (adminId == "admin" && adminPwd == "admin"){
+								location.href = "../html/admin_section/add-listing-with-menu-list.html"
 
 							} else {
 								alert("관리자 이용 가능 메뉴입니다")
@@ -785,7 +787,7 @@
 							// 데이터를 확인하고 그 데이터를 가지고 링크를 이동하기 위해서는 
 							// 자바스크립트에서 데이터 확인을 거치고 직접 보내주는 것이 좋다
 
-						}
+
 					</script>
 					Don’t have an account? <a
 						href="https://accounts.kakao.com/weblogin/create_account?continue=https://accounts.kakao.com">Sign

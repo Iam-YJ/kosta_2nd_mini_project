@@ -27,6 +27,8 @@ public class DispatcherServlet extends HttpServlet {
 
 	}
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -36,6 +38,7 @@ public class DispatcherServlet extends HttpServlet {
 
 		System.out.println(key);
 		String methodName = request.getParameter("methodName");
+		System.out.println(methodName);
 
 		Controller con = map.get(key);
 		System.out.println(con);

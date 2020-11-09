@@ -53,9 +53,4 @@ public interface AdminDAO {
 	 */
 	List<Noti> selectNoti() throws SQLException;
 	
-	/*
-	 * 식당 고유 번호 검색
-	 */
-	int selectByResNum(String resName) throws SQLException;
-	
 }

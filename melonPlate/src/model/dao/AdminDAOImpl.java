@@ -7,12 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.standard.PresentationDirection;
+
 import model.dto.Melon;
 import model.dto.Noti;
 import util.DbUtil;
 
 public class AdminDAOImpl implements AdminDAO {
-	
+
 	@Override
 	public int insertRes(Melon melon) throws SQLException {
 
@@ -22,14 +24,15 @@ public class AdminDAOImpl implements AdminDAO {
 
 		try {
 			con = DbUtil.getConnection();
-			ps = con.prepareStatement("insert into restaurant values(RES_NO_SEQ.nextval,?,?,?,?,?,0,0,?)");
+			ps = con.prepareStatement("insert into restaurant values(RES_NO_SEQ.nextval,?,?,?,?,?,?,?,?");
 			ps.setString(1, melon.getResName());
 			ps.setString(2, melon.getResPlace());
 			ps.setString(3, melon.getResTel());
 			ps.setString(4, melon.getResType());
 			ps.setString(5, melon.getResPhoto());
-			ps.setString(6, melon.getResPrice());
-
+			ps.setInt(6, melon.getResHits());
+			ps.setDouble(7, melon.getResGrade());
+			ps.setString(8, melon.getResPrice());
 
 			result = ps.executeUpdate();
 		} finally {
@@ -208,29 +211,6 @@ public class AdminDAOImpl implements AdminDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
-	}
-	
-	public int selectByResNum(String resName) throws SQLException {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		String sql = "SELECT * FROM RES_NO WHERE RES_NAME = ?";
-		int result = 0;
-
-		try {
-			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setString(1, resName);
-			rs = ps.executeQuery();
-
-			if (rs.next()) {
-				result = rs.getInt(1);
-
-			}
-		} finally {
-			DbUtil.dbClose(rs, ps, con);
-		}
-		return result;
 	}
 
 }
