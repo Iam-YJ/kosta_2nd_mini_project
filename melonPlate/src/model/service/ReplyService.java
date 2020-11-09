@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.dao.ReplyDAO;
 import model.dao.ReplyDAOImpl;
+import model.dto.Melon;
 import model.dto.Reply;
 
 public class ReplyService {
@@ -65,6 +66,21 @@ public class ReplyService {
 		int result = replyDAO.incrementLike(res_no, user_no);
 		if(result==0) throw new SQLException("증가되지 않았습니다.");
 		return result;
+	}
+	
+	/**
+	 * 식당번호로 식당검색
+	 */
+	public static Melon selectByResNo(int resNo) throws SQLException{
+		Melon melon = replyDAO.selectByResNo(resNo);
+		if(melon == null) throw new SQLException("검색결과 없음");
+		return melon;
+	}
+
+	public static Reply selectReplyByResNoAndUserNo(int resNo, int userNo) throws SQLException{
+		Reply reply = replyDAO.selectReplyByResNoAndUserNo(resNo, userNo);
+		if(reply==null) throw new SQLException("검색결과 없음");
+		return reply;
 	}
 	
 	

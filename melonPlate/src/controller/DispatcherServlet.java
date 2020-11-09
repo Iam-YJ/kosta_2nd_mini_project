@@ -44,21 +44,24 @@ public class DispatcherServlet extends HttpServlet {
 		System.out.println("요청됨");
 
 		String key = request.getParameter("key");
-
-		System.out.println(key);
+		System.out.println("key: " + key);
 
 		String methodName = request.getParameter("methodName");
-		System.out.println(methodName);
+		System.out.println("mathodName: " + methodName);
 
 		Controller con = map.get(key);
 		Class<?> cls = clzMap.get(key);
+		System.out.println("con: " + con);
+		System.out.println("cls: " + cls);
 
 		try {
 			Method method = cls.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+			System.out.println("method: " + method);
 			// cls 안에서 methodName에 해당하는 정보를 얻어온 것이다
 
 			ModelAndView mv = (ModelAndView) method.invoke(con, request, response);
 			// 메소드를 호출하는 것
+			System.out.println(mv.getViewName());
 
 			if (mv.isRedirect()) {
 				response.sendRedirect(mv.getViewName());

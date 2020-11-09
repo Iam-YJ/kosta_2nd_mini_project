@@ -3,7 +3,9 @@ package model.dto;
 public class Reply {
    private int reviewNo; // ¸®ºäNo
    private int resNo; // ½Ä´çNo
+   private String resName;
    private int userNo; // À¯ÀúNo
+   private String nickName;
    private int repHits; // ¸®ºä Á¶È¸¼ö
    private int repGrade; // ¸®ºä ÆòÁ¡
    private String repPhoto; // ¸®ºä »çÁø
@@ -11,11 +13,13 @@ public class Reply {
    private String repDate; // ¸®ºä ³¯Â¥
    private int repAgree; // ¸®ºä °ø°¨¼ö
 
-   public Reply(int reviewNo, int resNo, int userNo, int repHits, int repGrade, String repPhoto, String repContent,
+   public Reply(int reviewNo, int resNo, String resName, int userNo, String nickName, int repHits, int repGrade, String repPhoto, String repContent,
          String repDate, int repAgree) {
       this.reviewNo = reviewNo;
       this.resNo = resNo;
+      this.resName = resName;
       this.userNo = userNo;
+      this.nickName = nickName;
       this.repHits = repHits;
       this.repGrade = repGrade;
       this.repPhoto = repPhoto;
@@ -106,5 +110,22 @@ public class Reply {
    public void setRepAgree(int repAgree) {
       this.repAgree = repAgree;
    }
+
+	public String getResName() {
+		return resName;
+	}
+	
+	public void setResName(String resName) {
+		this.resName = resName;
+	}
+	
+	public String getNickName() {
+		return nickName;
+	}
+	
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+   
 
 }

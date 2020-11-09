@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,49 +15,54 @@
   <title>FOOGRA - Admin dashboard</title>
 	
   <!-- Favicons-->
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/admin_section/css/img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/admin_section/css/img/apple-touch-icon-57x57-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/admin_section/css/img/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/admin_section/css/img/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/admin_section/css/img/apple-touch-icon-144x144-precomposed.png">
 	
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Main styles -->
-  <link href="css/admin.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/css/admin.css" rel="stylesheet">
   <!-- Icon fonts-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <link href="vendor/dropzone.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/html/admin_section/vendor/dropzone.css" rel="stylesheet">
   <!-- Your custom styles -->
-  <link href="css/custom.css" rel="stylesheet">
-	
+  <link href="${pageContext.request.contextPath}/html/admin_section/css/custom.css" rel="stylesheet">
+
+	<script type="text/javascript">
+	 function updateUserInfo(){
+		 alert(1);
+	 }
+	</script>
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-      <a class="navbar-brand" href="index.html"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+      <a class="navbar-brand" href="index.html"><img src="html/admin_section/img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                  <a class="nav-link" href="index.html">
+                  <a class="nav-link" href="index.jsp">
                       <i class="fa fa-fw fa-dashboard"></i>
                       <span class="nav-link-text">Dashboard</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                  <a class="nav-link" href="messages.html">
+                  <a class="nav-link" href="messages.jsp">
                       <i class="fa fa-fw fa-envelope-open"></i>
                       <span class="nav-link-text">Messages</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookings">
-                  <a class="nav-link" href="bookings.html">
+                  <a class="nav-link" href="bookings.jsp">
                       <i class="fa fa-fw fa-calendar-check-o"></i>
                       <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                   </a>
@@ -66,54 +74,54 @@
                   </a>
                   <ul class="sidenav-second-level collapse" id="collapseMylistings">
                       <li>
-                          <a href="listings.html">Pending <span class="badge badge-pill badge-primary">6</span></a>
+                          <a href="listings.jsp">Pending <span class="badge badge-pill badge-primary">6</span></a>
                       </li>
                       <li>
-                          <a href="listings.html">Active <span class="badge badge-pill badge-success">6</span></a>
+                          <a href="listings.jsp">Active <span class="badge badge-pill badge-success">6</span></a>
                       </li>
                       <li>
-                          <a href="listings.html">Expired <span class="badge badge-pill badge-danger">6</span></a>
+                          <a href="listings.jsp">Expired <span class="badge badge-pill badge-danger">6</span></a>
                       </li>
                   </ul>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                  <a class="nav-link" href="reviews.html">
+                  <a class="nav-link" href="reviews.jsp">
                       <i class="fa fa-fw fa-star"></i>
                       <span class="nav-link-text">Reviews</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                  <a class="nav-link" href="bookmarks.html">
+                  <a class="nav-link" href="bookmarks.jsp">
                       <i class="fa fa-fw fa-heart"></i>
                       <span class="nav-link-text">Bookmarks</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                  <a class="nav-link" href="add-listing.html">
+                  <a class="nav-link" href="add-listing.jsp">
                       <i class="fa fa-fw fa-plus-circle"></i>
                       <span class="nav-link-text">Add listing</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing + Menu List">
-                  <a class="nav-link" href="add-listing-with-menu-list.html">
+                  <a class="nav-link" href="add-listing-with-menu-list.jsp">
                       <i class="fa fa-fw fa-plus-circle"></i>
                       <span class="nav-link-text">Add listing + Menu List</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders Page">
-                  <a class="nav-link" href="orders.html">
+                  <a class="nav-link" href="orders.jsp">
                       <i class="fa fa-fw fa-shopping-basket"></i>
                       <span class="nav-link-text">Orders Page</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Edit Order">
-                  <a class="nav-link" href="orders.html">
+                  <a class="nav-link" href="orders.jsp">
                       <i class="fa fa-fw fa-pencil"></i>
                       <span class="nav-link-text">Edit Order</span>
                   </a>
               </li>
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                  <a class="nav-link" href="user-profile.html">
+                  <a class="nav-link" href="user-profile.jsp">
                       <i class="fa fa-fw fa-user"></i>
                       <span class="nav-link-text">My Profile</span>
                   </a>
@@ -251,7 +259,9 @@
 			<div class="header_box version_2">
 				<h2><i class="fa fa-user"></i>Profile details</h2>
 			</div>
+			
 			<div class="row">
+			
 				<div class="col-md-4">
 					<div class="form-group">
 					<label>Your photo</label>
@@ -260,31 +270,33 @@
 				</div>
 				<div class="col-md-8 add_top_30">
 					<div class="row">
+					
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Name</label>
-								<input type="text" class="form-control" placeholder="Your name">
+								<label>Nickname</label>
+								<input type="text" class="form-control" value="${user.nickname}">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Last name</label>
-								<input type="text" class="form-control" placeholder="Your last name">
+								<label>등급</label>
+								<input type="text" class="form-control" value="${user.grade}">
 							</div>
 						</div>
+						
 					</div>
 					<!-- /row-->
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Telephone</label>
-								<input type="text" class="form-control" placeholder="Your telephone number">
+								<label>Point</label>
+								<input type="text" class="form-control" value="${user.point}">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" placeholder="Your email">
+								<input type="email" class="form-control" value="${user.email}">
 							</div>
 						</div>
 					</div>
@@ -292,58 +304,44 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Personal info</label>
-								<textarea style="height:100px;" class="form-control" placeholder="Personal info"></textarea>
+								<label>선호취향</label>
+								<textarea style="height:43px;" class="form-control" >${user.prefer}</textarea>
 							</div>
 						</div>
+						
 					</div>
 					<!-- /row-->
+					
 				</div>
 			</div>
 		</div>
 		<!-- /box_general-->
+		<form name="writeForm" method="post" action="${pageContext.request.contextPath}/dispatcher?key=user&methodName=updateUserInfo&user_no=${user.userNo}"
+		onSubmit='return checkValid()'>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="box_general padding_bottom">
 					<div class="header_box version_2">
-						<h2><i class="fa fa-lock"></i>Change password</h2>
+						<h2><i class="fa fa-lock"></i>회원정보 변경</h2>
 					</div>
 					<div class="form-group">
-						<label>Old password</label>
-						<input class="form-control" type="password">
+						<label>변경할 닉네임</label>
+						<input class="form-control" name="new_nickname"  type="text" value="${user.nickname}">
 					</div>
 					<div class="form-group">
-						<label>New password</label>
-						<input class="form-control" type="password">
+						<label>변경할 이메일</label>
+						<input class="form-control" name="new_email" id="new_email" type="email" value="${user.email}">
 					</div>
 					<div class="form-group">
-						<label>Confirm new password</label>
-						<input class="form-control" type="password">
+						<label>변경할 선호취향</label>
+						<input class="form-control" name="new_prefer"  type="text" value="${user.prefer}">
 					</div>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="box_general padding_bottom">
-					<div class="header_box version_2">
-						<h2><i class="fa fa-envelope"></i>Change email</h2>
-					</div>
-					<div class="form-group">
-						<label>Old email</label>
-						<input class="form-control" name="old_email" id="old_email" type="email">
-					</div>
-					<div class="form-group">
-						<label>New email</label>
-						<input class="form-control" name="new_email" id="new_email" type="email">
-					</div>
-					<div class="form-group">
-						<label>Confirm new email</label>
-						<input class="form-control" name="confirm_new_email" id="confirm_new_email" type="email">
-					</div>
+					<input type="submit" class="btn_1 medium"  value="변경">
 				</div>
 			</div>
 		</div>
+		</form>
 		<!-- /row-->
-		<p><a href="#0" class="btn_1 medium">Save</a></p>
 	  </div>
 	  <!-- /.container-fluid-->
    	</div>

@@ -35,7 +35,7 @@ public class UserService {
 	 * 찜하기 조회
 	 */
 	public List<Melon> selectBookMark(int userNo) throws SQLException {
-		
+		System.out.println("찜조회 service");
 		List<Melon> list = dao.selectBookMark(userNo);
 		return list;
 	}
@@ -48,6 +48,17 @@ public class UserService {
 		int result = dao.updatePoint(userNo, point);
 		return result;
 	}
+	
+	/**
+	 * 개인정보 조회하기
+	 * */
+	public User selectUserInfo(int userNo) throws SQLException{
+		User user = dao.selectUserInfo(userNo);
+		if (user == null)
+			throw new SQLException("검색결과 없습니다.");
+		return user;
+	}
+	
 	
 	/**
 	 * 회원정보 수정
@@ -69,6 +80,12 @@ public class UserService {
 		if (list.size() == 0)
 			throw new SQLException("검색결과 없습니다.");
 		return list;
+	}
+
+	public Noti selectNotiByNotiNo(int notiNo) throws SQLException {
+		Noti noti = dao.selectNotiByNotiNo(notiNo);
+		if(noti == null) throw new SQLException("내용없음");
+		return noti;
 	}
 
 }

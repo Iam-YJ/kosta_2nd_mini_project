@@ -3,6 +3,7 @@ package model.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import model.dto.Melon;
 import model.dto.Reply;
 
 public interface ReplyDAO {
@@ -38,4 +39,15 @@ public interface ReplyDAO {
 	 * 공감수 증가
 	 * */
 	int incrementLike(int res_no, int user_no)throws SQLException;
+	
+	/**
+	 * 식당번호로 식당 검색
+	 */
+	Melon selectByResNo(int resNo);
+
+	/**
+	 * 식당번호, 유저번호로 리뷰 검색 
+	 */
+	Reply selectReplyByResNoAndUserNo(int resNo, int userNo) throws SQLException;
+	
 }

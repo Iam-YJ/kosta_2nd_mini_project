@@ -54,6 +54,11 @@ public interface UserDAO {
 	 * */
 	int deleteFriends(String frId);
 	
+	/**
+	 * 회원정보 조회
+	 */
+	User selectUserInfo(int userNo) throws SQLException;
+	
 	/*
 	 * 회원정보 수정
 	 * */
@@ -63,4 +68,9 @@ public interface UserDAO {
 	 * 공지사항 보기
 	 * */
 	List<Noti> selectNotice() throws SQLException;
+
+	/**
+	 * 공지사항 상세보기
+	 */
+	Noti selectNotiByNotiNo(int notiNo) throws SQLException;
 }

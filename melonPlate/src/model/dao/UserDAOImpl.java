@@ -80,6 +80,7 @@ public class UserDAOImpl implements UserDAO{
 	 */
 	@Override
 	public List<Melon> selectBookMark(int userNo) throws SQLException{
+		System.out.println("찜조회 dao");
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs= null;
@@ -88,11 +89,14 @@ public class UserDAOImpl implements UserDAO{
 		
 		try {
 			con = DbUtil.getConnection();
+			System.out.println("sql: " + sql);
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, userNo);
 			rs = ps.executeQuery();
+			System.out.println("rs: " + rs);
 			while(rs.next()) {
 				int resNo = rs.getInt(1);
+				System.out.println("resNo: " + resNo);
 				String resName = rs.getString(2);
 				String resPlace = rs.getString(3);
 				String resTel = rs.getString(4);
@@ -103,8 +107,9 @@ public class UserDAOImpl implements UserDAO{
 				String resPrice = rs.getString(9);
 				
 				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
-				
+				System.out.println("melon: " + melon);
 				list.add(melon);
+				System.out.println("list: " + list);
 			}
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
@@ -177,6 +182,48 @@ public class UserDAOImpl implements UserDAO{
 
 		return 0;
 	}
+	
+	/**
+	 *  회원정보 조회
+	 * */
+	@Override
+	public User selectUserInfo(int userNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User user = null;
+		String sql = "SELECT * FROM USERLIST WHERE USER_NO = ?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, userNo);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int userno = rs.getInt(1);
+				String nickname = rs.getString(2);
+				int age = rs.getInt(3);
+				String email = rs.getString(4);
+				String gender = rs.getString(5);
+				String grade = rs.getString(6);
+				int point = rs.getInt(7);
+				String prefer = rs.getString(8);
+				int attend = rs.getInt(9);
+				int usage = rs.getInt(10);
+				
+				user =new User(userno, nickname, age, email, gender, grade, point, prefer, attend, usage);
+				
+			}//while
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}//finally
+
+		return user;
+	}
 
 	/*
 	 * 회원정보 수정
@@ -244,6 +291,44 @@ public class UserDAOImpl implements UserDAO{
 		}//finally
 
 		return list;
+	}
+
+	/**
+	 * 공지사항 상세보기
+	 */
+	@Override
+	public Noti selectNotiByNotiNo(int notiNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Noti noti = null;
+		String sql = "SELECT NOTI_NO, USER_NO, NOTI_TITLE, NOTI_DATE, NOTI_CONTENT, NOTI_HITS FROM NOTICE WHERE NOTI_NO = ?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, notiNo);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				notiNo = rs.getInt(1);
+				int userNo = rs.getInt(2);
+				String notiTitle = rs.getString(3);
+				String notiDate = rs.getString(4);
+				String notiContent = rs.getString(5);
+				int notiHits = rs.getInt(6);
+				
+			   noti = new Noti(notiNo, userNo, notiTitle, notiDate, notiContent, notiHits);
+
+			}//while
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}//finally
+
+		return noti;
 	}
 
 }

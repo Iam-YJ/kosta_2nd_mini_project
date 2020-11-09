@@ -7,10 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.dto.Melon;
 import model.dto.Reply;
+import model.dto.User;
+import model.service.UserService;
 import util.DbUtil;
 
 public class ReplyDAOImpl implements ReplyDAO {
+	
+	UserDAOImpl userDao = new UserDAOImpl();
+	
 	/*
 	 * 리뷰 작성 -식당별
 	 */
@@ -110,8 +116,7 @@ public class ReplyDAOImpl implements ReplyDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<Reply> list = new ArrayList<Reply>();
-		String sql = "SELECT REVIEW_NO, RES_NO,USER_NO, REVIEW_HITS, REVIEW_GRADE, "
-							+ "REVIEW_PHOTO, REVIEW_CONTENT, REVIEW_DATE, REVIEW_AGREE FROM REVIEW WHERE RES_NO = ?";
+		String sql = "SELECT * FROM REVIEW WHERE RES_NO = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
@@ -128,7 +133,10 @@ public class ReplyDAOImpl implements ReplyDAO {
 				String repDate = rs.getString(8);
 				int repAgree = rs.getInt(9);
 				
-				Reply reply= new Reply(reviewNo, resNo, userNo, repHits, repGrade, repPhoto, repContent, repDate, repAgree);
+				Melon melon = selectByResNo(resNo);
+				User user = userDao.selectUserInfo(userNo);
+				
+				Reply reply= new Reply(reviewNo, resNo, melon.getResName(), userNo, user.getNickname(), repHits, repGrade, repPhoto, repContent, repDate, repAgree);
 			
 				list.add(reply);
 			}//while
@@ -151,8 +159,8 @@ public class ReplyDAOImpl implements ReplyDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<Reply> list = new ArrayList<Reply>();
-		String sql = "SELECT REVIEW_NO, RES_NO,USER_NO, REVIEW_HITS, REVIEW_GRADE, "
-							+ "REVIEW_PHOTO, REVIEW_CONTENT, REVIEW_DATE, REVIEW_AGREE FROM REVIEW WHERE USER_NO = ?";
+		String sql = "SELECT * FROM REVIEW WHERE USER_NO = ?";
+		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
@@ -169,7 +177,12 @@ public class ReplyDAOImpl implements ReplyDAO {
 				String repDate = rs.getString(8);
 				int repAgree = rs.getInt(9);
 				
-				Reply reply= new Reply(reviewNo, resNo, userNo, repHits, repGrade, repPhoto, repContent, repDate, repAgree);
+				Melon melon = selectByResNo(resNo);
+				System.out.println("melon: " + melon);
+				User user = userDao.selectUserInfo(userNo);
+				System.out.println("user: " + user);
+				
+				Reply reply= new Reply(reviewNo, resNo, melon.getResName(), userNo, user.getNickname(), repHits, repGrade, repPhoto, repContent, repDate, repAgree);
 			
 				list.add(reply);
 			}//while
@@ -209,6 +222,86 @@ public class ReplyDAOImpl implements ReplyDAO {
 		return result;
 	}//incrementLike
 
-	
+
+	/**
+	 * 식당번호로 식당 검색
+	 */
+	@Override
+	public Melon selectByResNo(int resNo) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Melon melon = null;
+		String sql = "SELECT * FROM RESTAURANT WHERE RES_NO = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, resNo);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				resNo = rs.getInt(1);
+				String resName = rs.getString(2);
+				String resPlace = rs.getString(3);
+				String resTel = rs.getString(4);
+				String resType = rs.getString(5);
+				String resPhoto = rs.getString(6);
+				int resHits = rs.getInt(7);
+				int resGrade = rs.getInt(8);
+				String resPrice = rs.getString(9);
+				
+				melon = new Melon(resName, resPlace, resTel, resType, resPhoto, resPrice);
+			}//while
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}//finally
+
+		return melon;
+	}
+
+	/**
+	 * 식당번호, 유저번호로 리뷰 검색
+	 */
+	@Override
+	public Reply selectReplyByResNoAndUserNo(int resNo, int userNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Reply reply = null;
+		String sql = "SELECT * FROM REVIEW WHERE RES_NO = ? AND USER_NO = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, resNo);
+			ps.setInt(2, userNo);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				int reviewNo = rs.getInt(1);
+				resNo = rs.getInt(2);
+				userNo = rs.getInt(3);
+				int repHits = rs.getInt(4);
+				int repGrade = rs.getInt(5);
+				String repPhoto = rs.getString(6);
+				String repContent = rs.getString(7);
+				String repDate = rs.getString(8);
+				int repAgree = rs.getInt(9);
+								
+				Melon melon = selectByResNo(resNo);
+				User user = userDao.selectUserInfo(userNo);
+				
+				reply= new Reply(reviewNo, resNo, melon.getResName(), userNo, user.getNickname(), repHits, repGrade, repPhoto, repContent, repDate, repAgree);
+			
+			}//while
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}//finally
+
+		return reply;
+	}
 
 }

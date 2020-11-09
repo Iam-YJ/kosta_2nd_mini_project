@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,47 +13,47 @@
     <meta name="author" content="Ansonika">
     <title>FOOGRA - Admin dashboard</title>
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/admin_section/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-144x144-precomposed.png">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Main styles -->
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/admin.css" rel="stylesheet">
     <!-- Icon fonts-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Plugin styles -->
-    <link href="vendor/animate.min.css" rel="stylesheet">
-    <link href="vendor/magnific-popup.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/magnific-popup.css" rel="stylesheet">
     <!-- Your custom styles -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/html/index.jsp"><img src="${pageContext.request.contextPath}/html/admin_section/img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="index.jsp">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                    <a class="nav-link" href="messages.html">
+                    <a class="nav-link" href="messages.jsp">
                         <i class="fa fa-fw fa-envelope-open"></i>
                         <span class="nav-link-text">Messages</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookings">
-                    <a class="nav-link" href="bookings.html">
+                    <a class="nav-link" href="bookings.jsp">
                         <i class="fa fa-fw fa-calendar-check-o"></i>
                         <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                     </a>
@@ -63,54 +65,54 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMylistings">
                         <li>
-                            <a href="listings.html">Pending <span class="badge badge-pill badge-primary">6</span></a>
+                            <a href="listings.jsp">Pending <span class="badge badge-pill badge-primary">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.html">Active <span class="badge badge-pill badge-success">6</span></a>
+                            <a href="listings.jsp">Active <span class="badge badge-pill badge-success">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.html">Expired <span class="badge badge-pill badge-danger">6</span></a>
+                            <a href="listings.jsp">Expired <span class="badge badge-pill badge-danger">6</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                    <a class="nav-link" href="reviews.html">
+                    <a class="nav-link" href="html/admin_section/reviews.jsp">
                         <i class="fa fa-fw fa-star"></i>
                         <span class="nav-link-text">Reviews</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                    <a class="nav-link" href="bookmarks.html">
+                    <a class="nav-link" href="html/admin_section/bookmarks.jsp">
                         <i class="fa fa-fw fa-heart"></i>
                         <span class="nav-link-text">Bookmarks</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                    <a class="nav-link" href="add-listing.html">
+                    <a class="nav-link" href="add-listing.jsp">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing + Menu List">
-                    <a class="nav-link" href="add-listing-with-menu-list.html">
+                    <a class="nav-link" href="add-listing-with-menu-list.jsp">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing + Menu List</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders Page">
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="orders.jsp">
                         <i class="fa fa-fw fa-shopping-basket"></i>
                         <span class="nav-link-text">Orders Page</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Edit Order">
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="orders.jsp">
                         <i class="fa fa-fw fa-pencil"></i>
                         <span class="nav-link-text">Edit Order</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                    <a class="nav-link" href="user-profile.html">
+                    <a class="nav-link" href="user-profile.jsp">
                         <i class="fa fa-fw fa-user"></i>
                         <span class="nav-link-text">My Profile</span>
                     </a>
@@ -122,10 +124,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="charts.html">Charts</a>
+                            <a href="charts.jsp">Charts</a>
                         </li>
                         <li>
-                            <a href="tables.html">Tables</a>
+                            <a href="tables.jsp">Tables</a>
                         </li>
                     </ul>
                 </li>
@@ -245,7 +247,7 @@
             </ol>
             <div class="box_general">
                 <div class="header_box">
-                    <h2 class="d-inline-block">Reviews List</h2>
+                    <h2 class="d-inline-block">Reviews List  ${requestScope.count}개</h2>
                     <div class="filter">
                         <select name="orderby" class="selectbox">
                             <option value="Any time">Any time</option>
@@ -255,49 +257,24 @@
                     </div>
                 </div>
                 <div class="list_general reviews">
+                <c:forEach items="${requestScope.list}" var="list">
+                
                     <ul>
                         <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 8.5</strong></span>
-                            <figure><img src="img/item_1.jpg" alt=""></figure>
-                            <h4>La Monnalisa <small>by M.Twain</small></h4>
-                            <p>Lorem ipsum dolor sit amet, dolores mandamus moderatius ea ius, sed civibus vivendum imperdiet ei, amet tritani sea id. Ut veri diceret fierent mei, qui facilisi suavitate euripidis ad. In vim mucius menandri convenire, an brute zril vis. Ancillae delectus necessitatibus no eam, at porro solet veniam mel, ad everti nostrud vim. Eam no menandri pertinacia deterruisset.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
-                        </li>
-                        <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 9.5</strong></span>
-                            <figure><img src="img/item_2.jpg" alt=""></figure>
-                            <h4>Da Alfredo <small>by M.Giuliani</small></h4>
-                            <p>Ex omnis error aliquam quo, eu eos atqui accusam, ex nec sensibus erroribus principes. No pro albucius eloquentiam accommodare. Mei id illud posse persius. Nec eu dico lucilius delicata, qui propriae voluptaria eu.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
-                        </li>
-                        <li>
-                            <span>June 15 2019</span>
-                            <span class="rating"><strong>Rate: 9.0</strong></span>
-                            <figure><img src="img/item_3.jpg" alt=""></figure>
-                            <h4>Sushi Gold <small>by G.Lukas</small></h4>
-                            <p>Cum id mundi admodum menandri, eum errem aperiri at. Ut quas facilis qui, euismod admodum persequeris cum at. Summo aliquid eos ut, eum facilisi salutatus ne. Mazim option abhorreant ne his. Mel simul iisque albucius at, probatus indoctum efficiendi mei ei. Veniam percipit ei sea.</p>
-                            <p class="inline-popups"><a href="#modal-reply" data-effect="mfp-zoom-in" class="btn_1 gray"><i class="fa fa-fw fa-reply"></i> Reply to this review</a></p>
+                            <span>${list.repDate}</span>
+                            <span class="rating"><strong>Rate: ${list.repGrade}</strong></span>
+                            <figure><img src="${pageContext.request.contextPath}/html/admin_section/img/item_1.jpg" alt=""></figure>
+                            <h4>${list.resName} <small>by ${list.nickName}</small></h4>
+                            <p>${list.repContent}</p>
+                            <p class="inline-popups"><a href="${pageContext.request.contextPath}/dispatcher?key=reply&methodName=selectReplyByResNoAndUserNo&res_no=${list.resNo}&user_no=${list.userNo}&review_grade=${list.repGrade}&review_content=${list.repContent}" data-effect="mfp-zoom-in" class="btn_1 gray">수정</a>
+                            <a href="${pageContext.request.contextPath}/dispatcher?key=reply&methodName=deleteReply&res_no=${list.resNo}&user_no=${list.userNo}" data-effect="mfp-zoom-in" class="btn_1 gray">삭제</a></p>
                         </li>
                     </ul>
+                    </c:forEach>
                 </div>
             </div>
             <!-- /box_general-->
-            <nav aria-label="...">
-                <ul class="pagination pagination-sm add_bottom_30">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /pagination-->
+            
         </div>
         <!-- /container-fluid-->
     </div>

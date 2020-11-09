@@ -13,7 +13,7 @@ public class WritingService {
 	WritingDAO dao = new WritingDAOImpl();
 	
 	/**
-	 * 식당 이름으로 검색 - 홀릭이 글 쓸 떄 식당 조회한 후 작성할 수 있도록 ? 
+	 * 식당 이름으로 검색
 	 */
 	public List<Melon> selectByName(String resName) throws SQLException{
 		List<Melon> list = dao.selectByName(resName);

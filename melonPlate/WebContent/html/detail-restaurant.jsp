@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +33,52 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+    
+    <script type="text/javascript">
+		function insertBookMark(){
+			alert("찜하기 추가");
+			location.href="../dispatcher?key=user&methodName=insertBookMark&res_no=4&user_no=1";
+		}
+		
+		
+		$(function(){
+			  $("#tab-B").click(function(){
+				  alert("리뷰보기");
+				  /*if($(this).val()==""){
+					  $("#suggest").hide();
+					  return;
+				  }*/
+				  
+				  $.ajax({
+					  type: "post", //전송방식(get, post, put, delete)
+					  url: "../suggestServlet", //서버주소
+					  dataType: "json", //서버가 보내온 응답데이터의 타입(text, html, xml, json)
+					  data: {keyWord:$(this).val()}, //서버에게 보낼 parameter정보 
+					  success: function(result){ //요청 결과가 성공했을 때 호출될 함수 
+						  console.log(result); //개수|단어,단어, ..
+					  	  var str = result.split("|"); //결과가 배열
+					  	  if(parseInt(str[0]) > 0){ //0번지(결과단어의 개수)가 0보다 크다면 ..
+					  		  var words = str[1].split(",");
+					  	  	  var text = "";
+					  	  	  $.each(words, function(index, item){ //item은 단어 하나하나 
+					  	  		  text += "<a href='#'>" + item + "</a><br>";
+					  	  	  });
+					  	  	  $("#suggest").html(text);
+					  	  	  $("#suggest").show();
+					  	  }else{
+					  		  $("#suggest").hide();
+					  	  }
+					  }, 
+					  error: function(result){ //요청 결과가 실패했을 때 호출될 함수 
+						  console.log(result);
+					  }
+				  });
+			  }); //keyup끝
+		
+		
+	</script>
 
 </head>
 
@@ -121,7 +170,7 @@
 						<li><a href="404.html">404 Error</a></li>
 						<li><a href="help.html">Help and Faq</a></li>
 						<li><a href="blog.html">Blog</a></li>
-						<li><a href="leave-review.html">Leave a review</a></li>
+						<li><a href="leave-review.jsp">Leave a review</a></li>
 						<li><a href="user-logged-1.html">User Logged 1</a></li>
 						<li><a href="user-logged-2.html">User Logged 2</a></li>
 						<li><a href="contacts.html">Contacts</a></li>
@@ -159,7 +208,9 @@
 										<a href="img/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
 										<a href="img/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
 									</span>
-									<a href="#0" class="btn_hero wishlist"><i class="icon_heart"></i>Wishlist</a>
+									
+									<a href="#"  class="btn_hero wishlist"  onclick="insertBookMark();"><i class="icon_heart"></i>Wishlist</a>
+									
 								</div>
 							</div>
 						</div>
@@ -351,6 +402,7 @@
 		                    </div>
 		                    <!-- /tab -->
 
+							
 		                    <div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
 		                        <div class="card-header" role="tab" id="heading-B">
 		                            <h5>
@@ -360,6 +412,7 @@
 		                            </h5>
 		                        </div>
 		                        <div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+		                        
 		                            <div class="card-body reviews">
 		                                <div class="row add_bottom_45 d-flex align-items-center">
 		                                    <div class="col-md-3">
@@ -421,91 +474,34 @@
 		                                </div>
 
 		                                <div id="reviews">
+		                                <c:forEach items="${requestScope.list}" var="list">
 		                                    <div class="review_card">
 		                                        <div class="row">
 		                                            <div class="col-md-2 user_info">
 		                                                <figure><img src="img/avatar4.jpg" alt=""></figure>
-		                                                <h5>Lukas</h5>
+		                                                <h5>${list.nickName}</h5>
 		                                            </div>
 		                                            <div class="col-md-10 review_content">
 		                                                <div class="clearfix add_bottom_15">
-		                                                    <span class="rating">8.5<small>/10</small> <strong>Rating average</strong></span>
-		                                                    <em>Published 54 minutes ago</em>
+		                                                    <span class="rating">${list.repGrade}<small>/5</small> <strong>Rating average</strong></span>
+		                                                    <em>${list.repDate}</em>
 		                                                </div>
-		                                                <h4>"Great Location!!"</h4>
-		                                                <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his. Tollit molestie suscipiantur his et.</p>
-		                                                <ul>
-		                                                    <li><a href="#0"><i class="icon_like"></i><span>Useful</span></a></li>
-		                                                    <li><a href="#0"><i class="icon_dislike"></i><span>Not useful</span></a></li>
-		                                                    <li><a href="#0"><i class="arrow_back"></i> <span>Reply</span></a></li>
-		                                                </ul>
+		                                                <p>${list.repContent}</p>
+		                                                
 		                                            </div>
 		                                        </div>
 		                                        <!-- /row -->
 		                                    </div>
 		                                    <!-- /review_card -->
-		                                    <div class="review_card">
-		                                        <div class="row">
-		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar6.jpg" alt=""></figure>
-		                                                <h5>Lukas</h5>
-		                                            </div>
-		                                            <div class="col-md-10 review_content">
-		                                                <div class="clearfix add_bottom_15">
-		                                                    <span class="rating">8.5<small>/10</small> <strong>Rating average</strong></span>
-		                                                    <em>Published 10 Oct. 2019</em>
-		                                                </div>
-		                                                <h4>"Awesome Experience"</h4>
-		                                                <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his. Tollit molestie suscipiantur his et.</p>
-		                                                <ul>
-		                                                    <li><a href="#0"><i class="icon_like"></i><span>Useful</span></a></li>
-		                                                    <li><a href="#0"><i class="icon_dislike"></i><span>Not useful</span></a></li>
-		                                                    <li><a href="#0"><i class="arrow_back"></i> <span>Reply</span></a></li>
-		                                                </ul>
-		                                            </div>
-		                                        </div>
-		                                        <!-- /row -->
+		                                    
+		                                        
 		                                    </div>
 		                                    <!-- /review_card -->
-		                                    <div class="review_card">
-		                                        <div class="row">
-		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar1.jpg" alt=""></figure>
-		                                                <h5>Marika</h5>
-		                                            </div>
-		                                            <div class="col-md-10 review_content">
-		                                                <div class="clearfix add_bottom_15">
-		                                                    <span class="rating">9.0<small>/10</small> <strong>Rating average</strong></span>
-		                                                    <em>Published 11 Oct. 2019</em>
-		                                                </div>
-		                                                <h4>"Really great dinner!!"</h4>
-		                                                <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his. Tollit molestie suscipiantur his et.</p>
-		                                                <ul>
-		                                                    <li><a href="#0"><i class="icon_like"></i><span>Useful</span></a></li>
-		                                                    <li><a href="#0"><i class="icon_dislike"></i><span>Not useful</span></a></li>
-		                                                    <li><a href="#0"><i class="arrow_back"></i> <span>Reply</span></a></li>
-		                                                </ul>
-		                                            </div>
-		                                        </div>
-		                                        <!-- /row -->
-		                                        <div class="row reply">
-		                                            <div class="col-md-2 user_info">
-		                                                <figure><img src="img/avatar.jpg" alt=""></figure>
-		                                            </div>
-		                                            <div class="col-md-10">
-		                                                <div class="review_content">
-		                                                    <strong>Reply from Foogra</strong>
-		                                                    <em>Published 3 minutes ago</em>
-		                                                    <p><br>Hi Monika,<br><br>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his. Tollit molestie suscipiantur his et.<br><br>Thanks</p>
-		                                                </div>
-		                                            </div>
-		                                        </div>
-		                                        <!-- /reply -->
-		                                    </div>
-		                                    <!-- /review_card -->
+		                                    </c:forEach>
 		                                </div>
 		                                <!-- /reviews -->
-		                                <div class="text-right"><a href="leave-review.html" class="btn_1">Leave a review</a></div>
+		                                <div class="text-right"><a href="leave-review.jsp" class="btn_1">Leave a review</a></div>
+		                                
 		                            </div>
 		                        </div>
 		                    </div>

@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,27 +14,31 @@
     <meta name="author" content="Ansonika">
     <title>FOOGRA - Admin dashboard</title>
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/admin_section/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-144x144-precomposed.png">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Main styles -->
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/admin.css" rel="stylesheet">
     <!-- Icon fonts-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Plugin styles -->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/dropzone.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/date_picker.css" rel="stylesheet">
     <!-- Your custom styles -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/custom.css" rel="stylesheet">
+    <!-- WYSIWYG Editor -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/admin_section/js/editor/summernote-bs4.css">
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+        <a class="navbar-brand" href="index.html"><img src="${pageContext.request.contextPath}/html/admin_section/img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,13 +51,13 @@
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                    <a class="nav-link" href="messages.jsp]">
+                    <a class="nav-link" href="messages.html">
                         <i class="fa fa-fw fa-envelope-open"></i>
                         <span class="nav-link-text">Messages</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookings">
-                    <a class="nav-link" href="bookings.jsp">
+                    <a class="nav-link" href="bookings.html">
                         <i class="fa fa-fw fa-calendar-check-o"></i>
                         <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                     </a>
@@ -62,54 +69,54 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMylistings">
                         <li>
-                            <a href="listings.jsp">Pending <span class="badge badge-pill badge-primary">6</span></a>
+                            <a href="listings.html">Pending <span class="badge badge-pill badge-primary">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.jsp">Active <span class="badge badge-pill badge-success">6</span></a>
+                            <a href="listings.html">Active <span class="badge badge-pill badge-success">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.jsp">Expired <span class="badge badge-pill badge-danger">6</span></a>
+                            <a href="listings.html">Expired <span class="badge badge-pill badge-danger">6</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                    <a class="nav-link" href="../../dispatcher?key=reply&methodName=selectReplyByUserNo&user_no=1">
+                    <a class="nav-link" href="reviews.html">
                         <i class="fa fa-fw fa-star"></i>
                         <span class="nav-link-text">Reviews</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                    <a class="nav-link" href="../../dispatcher?key=user&methodName=seleteBookMark&user_no=1">
+                    <a class="nav-link" href="bookmarks.html">
                         <i class="fa fa-fw fa-heart"></i>
                         <span class="nav-link-text">Bookmarks</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                    <a class="nav-link" href="add-listing.jsp">
+                    <a class="nav-link" href="add-listing.html">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing + Menu List">
-                    <a class="nav-link" href="add-listing-with-menu-list.jsp">
+                    <a class="nav-link" href="add-listing-with-menu-list.html">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing + Menu List</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders Page">
-                    <a class="nav-link" href="../../dispatcher?key=user&methodName=selectNotice">
+                    <a class="nav-link" href="orders.html">
                         <i class="fa fa-fw fa-shopping-basket"></i>
-                        <span class="nav-link-text">공지사항</span>
+                        <span class="nav-link-text">Orders Page</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Edit Order">
-                    <a class="nav-link" href="orders.jsp">
+                    <a class="nav-link" href="orders.html">
                         <i class="fa fa-fw fa-pencil"></i>
                         <span class="nav-link-text">Edit Order</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                    <a class="nav-link" href="../../dispatcher?key=user&methodName=selectUserInfo&user_no=1">
+                    <a class="nav-link" href="user-profile.html">
                         <i class="fa fa-fw fa-user"></i>
                         <span class="nav-link-text">My Profile</span>
                     </a>
@@ -121,10 +128,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="charts.jsp">Charts</a>
+                            <a href="charts.html">Charts</a>
                         </li>
                         <li>
-                            <a href="tables.jsp">Tables</a>
+                            <a href="tables.html">Tables</a>
                         </li>
                     </ul>
                 </li>
@@ -240,91 +247,47 @@
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active">My Dashboard</li>
+                <li class="breadcrumb-item active">Add listing</li>
             </ol>
-            <!-- Icon Cards-->
-            <div class="row">
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card dashboard text-white bg-primary o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fa fa-fw fa-envelope-open"></i>
-                            </div>
-                            <div class="mr-5">
-                                <h5>26 New Messages!</h5>
-                            </div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="messages.html">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card dashboard text-white bg-warning o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fa fa-fw fa-star"></i>
-                            </div>
-                            <div class="mr-5">
-                                <h5>11 New Reviews!</h5>
-                            </div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="reviews.html">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card dashboard text-white bg-success o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fa fa-fw fa-calendar-check-o"></i>
-                            </div>
-                            <div class="mr-5">
-                                <h5>10 New Bookings!</h5>
-                            </div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="bookings.html">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card dashboard text-white bg-danger o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fa fa-fw fa-heart"></i>
-                            </div>
-                            <div class="mr-5">
-                                <h5>10 New Bookmarks!</h5>
-                            </div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="bookmarks.html">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /cards -->
-            <h2></h2>
             <div class="box_general padding_bottom">
                 <div class="header_box version_2">
-                    <h2><i class="fa fa-bar-chart"></i>Statistic</h2>
+                    <h2><i class="fa fa-file"></i>공지사항 내용</h2>
                 </div>
-                <canvas id="myAreaChart" width="100%" height="30" style="margin:45px 0 15px 0;"></canvas>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>제목</label>
+                            <input type="text" class="form-control" value="${noti.notiTitle}">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>일자</label>
+                            <input type="text" class="form-control" value="${noti.notiDate}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>조회수</label>
+                            <input type="text" class="form-control" value="${noti.notiHits}">
+                        </div>
+                    </div>
+                </div>
+                <!-- /row-->
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>내용</label>
+                            <textarea style="height:200px;" class="form-control" >${noti.notiContent}</textarea>
+                        </div>
+                    </div>
+                 </div>
+                <!-- /row-->
             </div>
+            <!-- /box_general-->
+            <p><a href="#0" class="btn_1 medium">Save</a></p>
         </div>
         <!-- /.container-fluid-->
     </div>
@@ -340,7 +303,7 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
-
+    
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -359,14 +322,14 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <script src="vendor/jquery.selectbox-0.2.js"></script>
@@ -375,7 +338,28 @@
     <!-- Custom scripts for all pages-->
     <script src="js/admin.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="js/admin-charts.js"></script>
+    <script src="vendor/dropzone.min.js"></script>
+    <script src="vendor/bootstrap-datepicker.js"></script>
+    <script>
+    $('input.date-pick').datepicker();
+    </script>
+    <!-- WYSIWYG Editor -->
+    <script src="js/editor/summernote-bs4.min.js"></script>
+    <script>
+    $('.editor').summernote({
+        fontSizes: ['10', '14'],
+        toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['fontsize', ['fontsize']],
+            ['para', ['ul', 'ol', 'paragraph']]
+        ],
+        placeholder: 'Write here ....',
+        tabsize: 2,
+        height: 200
+    });
+    </script>
 </body>
 
 </html>

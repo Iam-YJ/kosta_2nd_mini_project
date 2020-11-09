@@ -38,7 +38,7 @@ public class UserController implements Controller {
 		
 		//ModelAndView mv = new ModelAndView("dispatcher", true);
 		
-		return new ModelAndView("index.html", true);
+		return new ModelAndView("html/detail-restaurant.jsp", true);
 	}
 	
 	
@@ -47,15 +47,15 @@ public class UserController implements Controller {
 	 */
 	public ModelAndView deleteBookMark(HttpServletRequest request, HttpServletResponse response) {
 		//찜하기 삭제 후 찜하기 목록보기 페이지로 이동
-		
+		System.out.println("deleteBookMark() 메소드");
 		String userNo = request.getParameter("user_no");
 		String resNo = request.getParameter("res_no");
+		System.out.println("userNo: " + userNo);
+		System.out.println("resNo: " + resNo);
 		
 		service.deleteBookMark(Integer.parseInt(userNo), Integer.parseInt(resNo));
 		
-		ModelAndView mv = new ModelAndView("dispatcher", true);
-		
-		return null;
+		return new ModelAndView("dispatcher?key=user&methodName=seleteBookMark&user_no="+Integer.parseInt(userNo), true);
 	}
 	
 	
@@ -68,15 +68,12 @@ public class UserController implements Controller {
 		System.out.println("selectBookMark() 메소드");
 		
 		String userNo = request.getParameter("user_no");
-		
-		List<Melon> list = service.selectBookMark(1);
+		System.out.println("userNo: " + userNo);
+		List<Melon> list = service.selectBookMark(Integer.parseInt(userNo));
 		request.setAttribute("list", list);
 		System.out.println(list);
 		
-		ModelAndView mv = new ModelAndView("index.html", false);
-		//mv.setViewName("dispatcher/list.jsp");
-		
-		return mv;
+		return new ModelAndView("html/admin_section/bookmarks.jsp", false);
 	}
 	
 	
@@ -97,34 +94,64 @@ public class UserController implements Controller {
 	
 	
 	/**
-	 *  개인정보수정
+	 *  회원정보 조회
+	 * */
+	public ModelAndView selectUserInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("UserController selectUserInfo() 메소드");
+		String userNo = request.getParameter("user_no");
+		
+		User user = service.selectUserInfo(Integer.parseInt(userNo));
+		request.setAttribute("user", user);
+
+		return new ModelAndView("html/admin_section/user-profile.jsp", false);
+	}
+	
+	
+	/**
+	 *  회원정보수정
 	 * */
 	public ModelAndView updateUserInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("updateUserInfo() 메소드");
+		String nickname =request.getParameter("new_nickname");
+		String email = request.getParameter("new_email");
+		String prefer = request.getParameter("new_prefer");
+		String userNo = request.getParameter("user_no");
 		
-		String nickname =request.getParameter("nickname");
-		String email = request.getParameter("email");
-		String prefer = request.getParameter("prefer");
-		String userNo = request.getParameter("userNo");
+		System.out.println("nickname: " + nickname);
+		System.out.println("email: " + email);
+		System.out.println("prefer: " + prefer);
+		System.out.println("userNo: " + userNo);
 		
 		User user = new User(nickname, email, prefer, Integer.parseInt(userNo));
 		service.updateUserInfo(user);
 		
-		ModelAndView mv =new ModelAndView();
-		mv.setViewName("dispatcher");
-		mv.setRedirect(true);
-		return mv;
+		return new ModelAndView("dispatcher?key=user&methodName=selectUserInfo&user_no="+Integer.parseInt(userNo), true);
 	}
 	
 	/**
 	 * 유저입장 공지사항 조회
 	 * */
-	public ModelAndView selectNotiByUserNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView selectNotice(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		List<Noti> list = service.selectNotice();
 		request.setAttribute("list", list);
 		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("dispatcher/list.jsp");
-		return mv;
+		return new ModelAndView("html/admin_section/orders.jsp", false);
 	}
+	
+	/**
+	 * 공지사항 내용 보기
+	 */
+	public ModelAndView selectNotiByNotiNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("userController 공지사항상세보기");
+		String notiNo = request.getParameter("noti_no");
+		System.out.println("notiNo: " + notiNo);
+		Noti noti = service.selectNotiByNotiNo(Integer.parseInt(notiNo));
+		System.out.println("noti: " + noti);
+		request.setAttribute("noti", noti);
+		
+		return new ModelAndView("html/admin_section/notice-detail.jsp", false);
+	}
+
+
 }

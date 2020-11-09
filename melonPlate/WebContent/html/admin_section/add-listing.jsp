@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,31 +14,31 @@
     <meta name="author" content="Ansonika">
     <title>FOOGRA - Admin dashboard</title>
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/admin_section/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath}/html/admin_section/img/apple-touch-icon-144x144-precomposed.png">
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Main styles -->
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/admin.css" rel="stylesheet">
     <!-- Icon fonts-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Plugin styles -->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-    <link href="vendor/dropzone.css" rel="stylesheet">
-    <link href="css/date_picker.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/vendor/dropzone.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/date_picker.css" rel="stylesheet">
     <!-- Your custom styles -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/html/admin_section/css/custom.css" rel="stylesheet">
     <!-- WYSIWYG Editor -->
-    <link rel="stylesheet" href="js/editor/summernote-bs4.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/admin_section/js/editor/summernote-bs4.css">
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+        <a class="navbar-brand" href="index.html"><img src="${pageContext.request.contextPath}/html/admin_section/img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -248,491 +251,38 @@
             </ol>
             <div class="box_general padding_bottom">
                 <div class="header_box version_2">
-                    <h2><i class="fa fa-file"></i>Basic info</h2>
+                    <h2><i class="fa fa-file"></i>글 작성</h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Listing Title</label>
-                            <input type="text" class="form-control" placeholder="Da Alfredo">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Category</label>
-                            <div class="styled-select">
-                                <select>
-                                    <option>Italian</option>
-                                    <option>Japanese</option>
-                                    <option>Vegetarian</option>
-                                    <option>Chinese</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Keywords</label>
-                            <input type="text" class="form-control" placeholder="Keywords should be separated by commas">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
+                
+                <form name="writeForm" method="post" action="../dispatcher?key=user"  onSubmit='return checkValid()'>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Description</label>
-                            <div class="editor"></div>
+                            <label>제목</label>
+                            <input type="text" class="form-control" value="">
                         </div>
                     </div>
-                </div>
+                    </div>
                 <!-- /row-->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Phone (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Web site (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Email (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Facebook link (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Twitter link (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Google + (Optional)</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Photos</label>
-                            <form action="/file-upload" class="dropzone"></form>
+                            <label>내용</label>
+                            <textarea style="height:200px;" class="form-control" ></textarea>
                         </div>
                     </div>
-                </div>
+                 </div>
                 <!-- /row-->
             </div>
             <!-- /box_general-->
-            <div class="box_general padding_bottom">
-                <div class="header_box version_2">
-                    <h2><i class="fa fa-map-marker"></i>Location</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Select City</label>
-                            <div class="styled-select">
-                                <select>
-                                    <option>Miami</option>
-                                    <option>New York</option>
-                                    <option>Los Angeles</option>
-                                    <option>San Francisco</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" class="form-control" placeholder="ex. 250, Fifth Avenue...">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>State</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Zip Code</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-            </div>
-            <!-- /box_general-->
-            <div class="box_general padding_bottom">
-                <div class="header_box version_2">
-                    <h2><i class="fa fa-clock-o"></i>Opening</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <label class="fix_spacing">Monday</label>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Opening Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Closing Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-2">
-                        <label class="fix_spacing">Tuesday</label>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Opening Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Closing Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-2">
-                        <label class="fix_spacing">Wednesday</label>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Opening Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Closing Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-                <div class="row">
-                    <div class="col-md-2">
-                        <label class="fix_spacing">Thursday</label>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Opening Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <div class="styled-select">
-                                <select>
-                                    <option>Closing Time</option>
-                                    <option>Closed</option>
-                                    <option>1 AM</option>
-                                    <option>2 AM</option>
-                                    <option>3 AM</option>
-                                    <option>4 AM</option>
-                                    <option>5 AM</option>
-                                    <option>6 AM</option>
-                                    <option>7 AM</option>
-                                    <option>8 AM</option>
-                                    <option>9 AM</option>
-                                    <option>10 AM</option>
-                                    <option>11 AM</option>
-                                    <option>12 AM</option>
-                                    <option>1 PM</option>
-                                    <option>2 PM</option>
-                                    <option>3 PM</option>
-                                    <option>4 PM</option>
-                                    <option>5 PM</option>
-                                    <option>6 PM</option>
-                                    <option>7 PM</option>
-                                    <option>8 PM</option>
-                                    <option>9 PM</option>
-                                    <option>10 PM</option>
-                                    <option>11 PM</option>
-                                    <option>12 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /row-->
-            </div>
-            <!-- /box_general-->
-            <div class="box_general padding_bottom">
-                <div class="header_box version_2">
-                    <h2><i class="fa fa-dollar"></i>Pricing</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h6>Item</h6>
-                        <table id="pricing-list-container" style="width:100%;">
-                            <tr class="pricing-list-item">
-                                <td>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Title">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Description">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Price">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <a class="delete" href="#"><i class="fa fa-fw fa-remove"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <a href="#0" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
-                    </div>
-                </div>
-                <!-- /row-->
-            </div>
-            <!-- /box_general-->
+            
             <p><a href="#0" class="btn_1 medium">Save</a></p>
+            <input type=submit class="btn_1 medium" value=글쓰기> 
         </div>
         <!-- /.container-fluid-->
     </div>
+    </form>
     <!-- /.container-wrapper-->
     <footer class="sticky-footer">
         <div class="container">

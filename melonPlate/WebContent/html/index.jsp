@@ -58,7 +58,7 @@
 			<ul id="top_menu">
 				<li><a href="#sign-in-dialog" id="sign-in" class="login">Sign
 						In</a></li>
-				<li><a href="wishlist.html" class="wishlist_bt_top"
+				<li><a href="../dispatcher?key=user&methodName=seleteBookMark&user_no=1" class="wishlist_bt_top"
 					title="Your wishlist">Your wishlist</a></li>
 			</ul>
 			<!-- /top_menu -->
@@ -99,9 +99,9 @@
 									<li><a href="grid-listing-filterscol-delivery.html">List
 											Delivery/Takeaway</a></li>
 								</ul></li>
-							<li class="third-level"><a href="#0">Detail pages</a>
+							<li class="third-level"><a href="#0">Detail pages</a> 
 								<ul>
-									<li><a href="detail-restaurant.html">Detail page 1</a></li>
+									<li><a href="detail-restaurant.jsp">Detail page 1</a></li>
 									<li><a href="detail-restaurant-2.html">Detail page 2</a></li>
 									<li><a href="detail-restaurant-3.html">Mobile Fixed
 											Booking</a></li>
@@ -129,7 +129,7 @@
 								</ul></li>
 							<li><a href="submit-restaurant.html">Submit Restaurant</a></li>
 							<li><a href="submit-rider.html">Submit Rider</a></li>
-							<li><a href="wishlist.html">Wishlist</a></li>
+							<li><a href="../dispatcher?key=user&methodName=seleteBookMark&user_no=1">Wishlist</a></li> 
 							<li><a href="booking.html">Booking</a></li>
 							<li><a href="confirm.html">Confirm Booking</a></li>
 							<li><a href="confirm-delivery.html">Confirm Order</a></li>
@@ -137,7 +137,7 @@
 									Delivery/Takeaway</a></li>
 							<li><a href="booking-delivery.html">Order
 									Delivery/Takeaway 2</a></li>
-							<li><a href="admin_section/index.html" target="_blank">Admin
+							<li><a href="admin_section/index.jsp" target="_blank">Admin
 									Section</a></li>
 						</ul></li>
 					<li class="submenu"><a href="#0" class="show-submenu">Other
