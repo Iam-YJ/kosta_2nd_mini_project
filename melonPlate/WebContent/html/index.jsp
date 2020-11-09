@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!-- 찐 메인 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,14 +31,20 @@
 	rel="stylesheet">
 
 <!-- BASE CSS -->
-<link href="${pageContext.request.contextPath}/html/css/bootstrap_customized.min.css" rel="stylesheet">  <!-- ${pageContext.request.contextPath} -->
-<link href="${pageContext.request.contextPath}/html/css/style.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/html/css/bootstrap_customized.min.css"
+	rel="stylesheet">
+<!-- ${pageContext.request.contextPath} -->
+<link href="${pageContext.request.contextPath}/html/css/style.css"
+	rel="stylesheet">
 
 <!-- SPECIFIC CSS -->
-<link href="${pageContext.request.contextPath}/html/css/home.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/html/css/home.css"
+	rel="stylesheet">
 
 <!-- YOUR CUSTOM CSS -->
-<link href="${pageContext.request.contextPath}/html/css/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/html/css/custom.css"
+	rel="stylesheet">
 
 </head>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -49,7 +55,7 @@
 	<header class="header clearfix element_to_stick">
 		<div class="container">
 			<div id="logo">
-				<a href="index.html"> <img src="img/logo.svg" width="140"
+				<a href="index.jsp"> <img src="img/logo.svg" width="140"
 					height="35" alt="" class="logo_normal"> <img
 					src="img/logo_sticky.svg" width="140" height="35" alt=""
 					class="logo_sticky">
@@ -58,7 +64,7 @@
 			<ul id="top_menu">
 				<li><a href="#sign-in-dialog" id="sign-in" class="login">Sign
 						In</a></li>
-				<li><a href="wishlist.html" class="wishlist_bt_top"
+				<li><a href="wishlist.jsp" class="wishlist_bt_top"
 					title="Your wishlist">Your wishlist</a></li>
 			</ul>
 			<!-- /top_menu -->
@@ -67,95 +73,95 @@
 			<nav class="main-menu">
 				<div id="header_menu">
 					<a href="#0" class="open_close"> <i class="icon_close"></i><span>Menu</span>
-					</a> <a href="index.html"><img src="img/logo.svg" width="140"
+					</a> <a href="index.jsp"><img src="img/logo.svg" width="140"
 						height="35" alt=""></a>
 				</div>
 				<ul>
 					<li class="submenu"><a href="#0" class="show-submenu">Home</a>
 						<ul>
-							<li><a href="index.html">Default</a></li>
-							<li><a href="index-2.html">Video Background</a></li>
-							<li><a href="index-3.html">Slider</a></li>
-							<li><a href="index-5.html">Address Autocomplete</a></li>
-							<li><a href="index-6.html">Search Version 2</a></li>
-							<li><a href="index-7.html">Delivery/Takeaway version</a></li>
-							<li><a href="modal-advertise.html">Modal Advertise</a></li>
-							<li><a href="modal-newsletter.html">Modal Newsletter</a></li>
-							<li><a href="index-4.html">GDPR Cookie Bar EU Law</a></li>
+							<li><a href="index.jsp">Default</a></li>
+							<li><a href="index-2.jsp">Video Background</a></li>
+							<li><a href="index-3.jsp">Slider</a></li>
+							<li><a href="index-5.jsp">Address Autocomplete</a></li>
+							<li><a href="index-6.jsp">Search Version 2</a></li>
+							<li><a href="index-7.jsp">Delivery/Takeaway version</a></li>
+							<li><a href="modal-advertise.jsp">Modal Advertise</a></li>
+							<li><a href="modal-newsletter.jsp">Modal Newsletter</a></li>
+							<li><a href="index-4.jsp">GDPR Cookie Bar EU Law</a></li>
 						</ul></li>
 					<li class="submenu"><a href="#0" class="show-submenu">Listing</a>
 						<ul>
 							<li class="third-level"><a href="#0">List pages</a>
 								<ul>
-									<li><a href="grid-listing-filterscol.html">List
+									<li><a href="grid-listing-filterscol.jsp">List
 											default</a></li>
 									<li><a href="../dispatcher?key=melon&methodName=selectAll">List
 											with map</a></li>
-									<li><a href="listing-map.html">List side map</a></li>
-									<li><a href="grid-listing-filterscol-full-width.html">List
+									<li><a href="listing-map.jsp">List side map</a></li>
+									<li><a href="grid-listing-filterscol-full-width.jsp">List
 											full width</a></li>
-									<li><a href="grid-listing-filterscol-full-masonry.html">List
+									<li><a href="grid-listing-filterscol-full-masonry.jsp">List
 											Masonry Filter</a></li>
-									<li><a href="grid-listing-filterscol-delivery.html">List
+									<li><a href="grid-listing-filterscol-delivery.jsp">List
 											Delivery/Takeaway</a></li>
 								</ul></li>
 							<li class="third-level"><a href="#0">Detail pages</a>
 								<ul>
-									<li><a href="detail-restaurant.html">Detail page 1</a></li>
-									<li><a href="detail-restaurant-2.html">Detail page 2</a></li>
-									<li><a href="detail-restaurant-3.html">Mobile Fixed
+									<li><a href="detail-restaurant.jsp">Detail page 1</a></li>
+									<li><a href="detail-restaurant-2.jsp">Detail page 2</a></li>
+									<li><a href="detail-restaurant-3.jsp">Mobile Fixed
 											Booking</a></li>
-									<li><a href="detail-restaurant-delivery.html">Delivery/Takeaway</a></li>
-									<li><a href="detail-restaurant-4.html">Detail Menu
+									<li><a href="detail-restaurant-delivery.jsp">Delivery/Takeaway</a></li>
+									<li><a href="detail-restaurant-4.jsp">Detail Menu
 											Thumbs</a></li>
-									<li><a href="detail-restaurant-5.html">Detail Contact
+									<li><a href="detail-restaurant-5.jsp">Detail Contact
 											Form</a></li>
-									<li><a href="detail-restaurant-6.html">Detail
+									<li><a href="detail-restaurant-6.jsp">Detail
 											Instagram Feed</a></li>
 								</ul></li>
 							<li class="third-level"><a href="#0">OpenStreetMap</a>
 								<ul>
 									<li><a
-										href="grid-listing-filterscol-map-openstreetmap.html">List
+										href="grid-listing-filterscol-map-openstreetmap.jsp">List
 											with map</a></li>
-									<li><a href="listing-map-openstreetmap.html">List side
+									<li><a href="listing-map-openstreetmap.jsp">List side
 											map</a></li>
 									<li><a
-										href="grid-listing-filterscol-full-width-openstreetmap.html">List
+										href="grid-listing-filterscol-full-width-openstreetmap.jsp">List
 											full width</a></li>
 									<li><a
-										href="grid-listing-filterscol-full-masonry-openstreetmap.html">List
+										href="grid-listing-filterscol-full-masonry-openstreetmap.jsp">List
 											Masonry Filter</a></li>
 								</ul></li>
-							<li><a href="submit-restaurant.html">Submit Restaurant</a></li>
-							<li><a href="submit-rider.html">Submit Rider</a></li>
-							<li><a href="wishlist.html">Wishlist</a></li>
-							<li><a href="booking.html">Booking</a></li>
-							<li><a href="confirm.html">Confirm Booking</a></li>
-							<li><a href="confirm-delivery.html">Confirm Order</a></li>
-							<li><a href="booking-delivery-2.html">Order
+							<li><a href="submit-restaurant.jsp">Submit Restaurant</a></li>
+							<li><a href="submit-rider.jsp">Submit Rider</a></li>
+							<li><a href="wishlist.jsp">Wishlist</a></li>
+							<li><a href="booking.jsp">Booking</a></li>
+							<li><a href="confirm.jsp">Confirm Booking</a></li>
+							<li><a href="confirm-delivery.jsp">Confirm Order</a></li>
+							<li><a href="booking-delivery-2.jsp">Order
 									Delivery/Takeaway</a></li>
-							<li><a href="booking-delivery.html">Order
+							<li><a href="booking-delivery.jsp">Order
 									Delivery/Takeaway 2</a></li>
-							<li><a href="admin_section/index.html" target="_blank">Admin
+							<li><a href="admin_section/index.jsp" target="_blank">Admin
 									Section</a></li>
 						</ul></li>
 					<li class="submenu"><a href="#0" class="show-submenu">Other
 							Pages</a>
 						<ul>
-							<li><a href="404.html">404 Error</a></li>
-							<li><a href="help.html">Help and Faq</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="leave-review.html">Leave a review</a></li>
-							<li><a href="user-logged-1.html">User Logged 1</a></li>
-							<li><a href="user-logged-2.html">User Logged 2</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
-							<li><a href="coming_soon/index.html">Coming Soon</a></li>
-							<li><a href="account.html">Sign Up</a></li>
-							<li><a href="icon-pack-1.html">Icon Pack 1</a></li>
-							<li><a href="icon-pack-2.html">Icon Pack 2</a></li>
+							<li><a href="404.jsp">404 Error</a></li>
+							<li><a href="help.jsp">Help and Faq</a></li>
+							<li><a href="blog.jsp">Blog</a></li>
+							<li><a href="leave-review.jsp">Leave a review</a></li>
+							<li><a href="user-logged-1.jsp">User Logged 1</a></li>
+							<li><a href="user-logged-2.jsp">User Logged 2</a></li>
+							<li><a href="contacts.jsp">Contacts</a></li>
+							<li><a href="coming_soon/index.jsp">Coming Soon</a></li>
+							<li><a href="account.jsp">Sign Up</a></li>
+							<li><a href="icon-pack-1.jsp">Icon Pack 1</a></li>
+							<li><a href="icon-pack-2.jsp">Icon Pack 2</a></li>
 						</ul></li>
-					<li><a href="submit-restaurant.html">Submit</a></li>
+					<li><a href="submit-restaurant.jsp">Submit</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -170,7 +176,8 @@
 						<div class="col-xl-9 col-lg-10 col-md-8">
 							<h1>Discover &amp; Book</h1>
 							<p>The best restaurants at the best price</p>
-							<form method="post" action="../dispatcher?key=melon&methodName=selectByResName">
+							<form method="post"
+								action="../dispatcher?key=melon&methodName=selectByResName">
 								<div class="row no-gutters custom-search-input">
 									<div class="col-lg-8">
 										<div class="form-group">
@@ -180,7 +187,7 @@
 										</div>
 									</div>
 									<div class="col-lg-4">
-										<input type="submit" value="Search" >
+										<input type="submit" value="Search">
 									</div>
 								</div>
 								<!-- /row -->
@@ -263,7 +270,7 @@
 							<span class="ribbon off">-30%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_1.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Pizza</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Pizza</small>
 								<div class="item_title">
 									<h3>Da Alfredo</h3>
 									<small>27 Old Gloucester St</small>
@@ -286,7 +293,7 @@
 							<span class="ribbon off">-40%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_2.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Burghers</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Burghers</small>
 								<div class="item_title">
 									<h3>Best Burghers</h3>
 									<small>27 Old Gloucester St</small>
@@ -309,7 +316,7 @@
 							<span class="ribbon off">-30%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_3.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Vegetarian</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Vegetarian</small>
 								<div class="item_title">
 									<h3>Vego Life</h3>
 									<small>27 Old Gloucester St</small>
@@ -332,7 +339,7 @@
 							<span class="ribbon off">-25%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_4.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Japanese</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Japanese</small>
 								<div class="item_title">
 									<h3>Sushi Temple</h3>
 									<small>27 Old Gloucester St</small>
@@ -355,7 +362,7 @@
 							<span class="ribbon off">-30%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_5.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Pizza</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Pizza</small>
 								<div class="item_title">
 									<h3>Auto Pizza</h3>
 									<small>27 Old Gloucester St</small>
@@ -378,7 +385,7 @@
 							<span class="ribbon off">-15%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_6.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Burghers</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Burghers</small>
 								<div class="item_title">
 									<h3>Alliance</h3>
 									<small>27 Old Gloucester St</small>
@@ -401,7 +408,7 @@
 							<span class="ribbon off">-30%</span>
 							<img src="img/lazy-placeholder.png" data-src="img/location_7.jpg"
 								class="owl-lazy" alt="">
-							<a href="detail-restaurant.html" class="strip_info"> <small>Chinese</small>
+							<a href="detail-restaurant.jsp" class="strip_info"> <small>Chinese</small>
 								<div class="item_title">
 									<h3>Alliance</h3>
 									<small>27 Old Gloucester St</small>
@@ -428,7 +435,7 @@
 						<small>foogra</small>
 						<h3>More than 3000 Restaurants</h3>
 						<p>Book a table easly at the best price</p>
-						<a href="grid-listing-filterscol.html" class="btn_1">View All</a>
+						<a href="grid-listing-filterscol.jsp" class="btn_1">View All</a>
 					</div>
 				</div>
 				<!-- /wrapper -->
@@ -447,7 +454,7 @@
 				<div class="col-md-6">
 					<div class="list_home">
 						<ul>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_1.jpg" alt="" class="lazy">
@@ -461,7 +468,7 @@
 										<li>Average price $35</li>
 									</ul>
 							</a></li>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_2.jpg" alt="" class="lazy">
@@ -475,7 +482,7 @@
 										<li>Average price $30</li>
 									</ul>
 							</a></li>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_3.jpg" alt="" class="lazy">
@@ -495,7 +502,7 @@
 				<div class="col-md-6">
 					<div class="list_home">
 						<ul>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_4.jpg" alt="" class="lazy">
@@ -509,7 +516,7 @@
 										<li>Average price $20</li>
 									</ul>
 							</a></li>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_5.jpg" alt="" class="lazy">
@@ -523,7 +530,7 @@
 										<li>Average price $35</li>
 									</ul>
 							</a></li>
-							<li><a href="detail-restaurant.html">
+							<li><a href="detail-restaurant.jsp">
 									<figure>
 										<img src="img/location_list_placeholder.png"
 											data-src="img/location_list_6.jpg" alt="" class="lazy">
@@ -543,7 +550,7 @@
 			</div>
 			<!-- /row -->
 			<p class="text-center d-block d-md-block d-lg-none">
-				<a href="grid-listing-filterscol.html" class="btn_1">View All</a>
+				<a href="grid-listing-filterscol.jsp" class="btn_1">View All</a>
 			</p>
 			<!-- /button visibile on tablet/mobile only -->
 		</div>
@@ -557,7 +564,7 @@
 						<p>Join Us to increase your online visibility. You'll have
 							access to even more customers who are looking to enjoy your tasty
 							dishes at home.</p>
-						<a href="submit-restaurant.html" class="btn_1">Read more</a>
+						<a href="submit-restaurant.jsp" class="btn_1">Read more</a>
 					</div>
 				</div>
 			</div>
@@ -574,12 +581,12 @@
 					<h3 data-target="#collapse_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="about.html">About us</a></li>
-							<li><a href="submit-restaurant.html">Add your restaurant</a></li>
-							<li><a href="help.html">Help</a></li>
-							<li><a href="account.html">My account</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
+							<li><a href="about.jsp">About us</a></li>
+							<li><a href="submit-restaurant.jsp">Add your restaurant</a></li>
+							<li><a href="help.jsp">Help</a></li>
+							<li><a href="account.jsp">My account</a></li>
+							<li><a href="blog.jsp">Blog</a></li>
+							<li><a href="contacts.jsp">Contacts</a></li>
 						</ul>
 					</div>
 				</div>
@@ -587,13 +594,13 @@
 					<h3 data-target="#collapse_2">Categories</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_2">
 						<ul>
-							<li><a href="grid-listing-filterscol.html">Top
+							<li><a href="grid-listing-filterscol.jsp">Top
 									Categories</a></li>
-							<li><a href="grid-listing-filterscol-full-masonry.html">Best
+							<li><a href="grid-listing-filterscol-full-masonry.jsp">Best
 									Rated</a></li>
-							<li><a href="grid-listing-filterscol-full-width.html">Best
+							<li><a href="grid-listing-filterscol-full-width.jsp">Best
 									Price</a></li>
-							<li><a href="grid-listing-filterscol-full-masonry.html">Latest
+							<li><a href="grid-listing-filterscol-full-masonry.jsp">Latest
 									Submissions</a></li>
 						</ul>
 					</div>
@@ -700,18 +707,52 @@
 		</div>
 		<form>
 			<div class="sign-in-wrapper">
-				<a href="#0" class="social_bt kakao" id="kakao-login-btn">Login
+				<a href="#" class="social_bt kakao" id="kakao-login-btn" onclick=createLoginButton>Login
 					with Kakao</a>
-				<script>
-					Kakao.init('3f23f0f66acf48aad61c4ec6681b0615');
-					// 카카오 로그인 버튼을 생성합니다.
+				<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+				<a id="kakao-login-btn"></a> <a
+					href="http://developers.kakao.com/logout"></a>
+				<script type='text/javascript'>
+					Kakao.init('3f23f0f66acf48aad61c4ec6681b0615'); //아까 카카오개발자홈페이지에서 발급받은 자바스크립트 키를 입력함
+
+					//카카오 로그인 버튼을 생성합니다. 
+
 					Kakao.Auth.createLoginButton({
 						container : '#kakao-login-btn',
 						success : function(authObj) {
-							alert(JSON.stringify(authObj));
+							Kakao.API.request({
+
+								url : '/v2/user/me',
+
+								success : function(res) {
+
+									console.log(res);
+
+									//console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
+
+									var userNo = res.id;
+									var userNick = res.properties.nickname;
+									var userAge = res.kakao_account.age_range;
+									var userEmail = res.kakao_account.email;
+									var userGender = res.kakao_account.gender;
+									
+							/* 		console.log(userNo)
+									console.log(userNick)
+									console.log(userAge)
+									console.log(userEmail)
+									console.log(userGender) */
+									
+									window.location.replace("${pageContext.request.contextPath}/dispatcher?key=user&methodName=join&userNo="+userNo+"&userNick="+userNick+"&userAge="+userAge+"&userEmail="+userEmail+"&userGender="+userGender);
+									
+									//../dispatcher?key=user&methodName=join
+									
+									//window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/hansub_project/home?kakaonickname="+kakaonickname+"kakaotalk"+"&kakaoe_mail="+kakaoe_mail);
+
+								}
+							})
 						},
-						fail : function(err) {
-							alert(JSON.stringify(err));
+						fail : function(error) {
+							alert(JSON.stringify(error));
 						}
 					});
 				</script>
@@ -734,8 +775,8 @@
 							var adminId = prompt("ID를 입력하세요");
 							var adminPwd = prompt("Password를 입력하세요");
 
-							if (adminId == "admin" && adminPwd == "admin"){
-								location.href = "../html/admin_section/index.jsp"
+							if (adminId == "admin" && adminPwd == "admin") {
+								location.href = "../html/admin_section/adminIndex.jsp"
 
 							} else {
 								alert("관리자 이용 가능 메뉴입니다")

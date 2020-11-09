@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,26 +33,26 @@
 <body class="fixed-nav sticky-footer" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
+        <a class="navbar-brand" href="index.jsp"><img src="img/logo.svg" data-retina="true" alt="" width="142" height="36"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="index.jsp">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Messages">
-                    <a class="nav-link" href="messages.html">
+                    <a class="nav-link" href="messages.jsp">
                         <i class="fa fa-fw fa-envelope-open"></i>
                         <span class="nav-link-text">Messages</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookings">
-                    <a class="nav-link" href="bookings.html">
+                    <a class="nav-link" href="bookings.jsp">
                         <i class="fa fa-fw fa-calendar-check-o"></i>
                         <span class="nav-link-text">Bookings <span class="badge badge-pill badge-primary">6 New</span></span>
                     </a>
@@ -66,54 +64,54 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMylistings">
                         <li>
-                            <a href="listings.html">Pending <span class="badge badge-pill badge-primary">6</span></a>
+                            <a href="listings.jsp">Pending <span class="badge badge-pill badge-primary">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.html">Active <span class="badge badge-pill badge-success">6</span></a>
+                            <a href="listings.jsp">Active <span class="badge badge-pill badge-success">6</span></a>
                         </li>
                         <li>
-                            <a href="listings.html">Expired <span class="badge badge-pill badge-danger">6</span></a>
+                            <a href="listings.jsp">Expired <span class="badge badge-pill badge-danger">6</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Reviews">
-                    <a class="nav-link" href="reviews.html">
+                    <a class="nav-link" href="reviews.jsp">
                         <i class="fa fa-fw fa-star"></i>
                         <span class="nav-link-text">Reviews</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                    <a class="nav-link" href="bookmarks.html">
+                    <a class="nav-link" href="bookmarks.jsp">
                         <i class="fa fa-fw fa-heart"></i>
                         <span class="nav-link-text">Bookmarks</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing">
-                    <a class="nav-link" href="add-listing.html">
+                    <a class="nav-link" href="add-listing.jsp">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Add listing + Menu List">
-                    <a class="nav-link" href="add-listing-with-menu-list.html">
+                    <a class="nav-link" href="add-listing-with-menu-list.jsp">
                         <i class="fa fa-fw fa-plus-circle"></i>
                         <span class="nav-link-text">Add listing + Menu List</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Orders Page">
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="orders.jsp">
                         <i class="fa fa-fw fa-shopping-basket"></i>
                         <span class="nav-link-text">Orders Page</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Edit Order">
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="orders.jsp">
                         <i class="fa fa-fw fa-pencil"></i>
                         <span class="nav-link-text">Edit Order</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-                    <a class="nav-link" href="user-profile.html">
+                    <a class="nav-link" href="user-profile.jsp">
                         <i class="fa fa-fw fa-user"></i>
                         <span class="nav-link-text">My Profile</span>
                     </a>
@@ -125,10 +123,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="charts.html">Charts</a>
+                            <a href="charts.jsp">Charts</a>
                         </li>
                         <li>
-                            <a href="tables.html">Tables</a>
+                            <a href="tables.jsp">Tables</a>
                         </li>
                     </ul>
                 </li>
@@ -737,7 +735,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright Â© FOOGRA 2020</small>
+                <small>Copyright © FOOGRA 2020</small>
             </div>
         </div>
     </footer>
@@ -753,13 +751,13 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Ã—</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../../html/index.jsp">Logout</a>
                 </div>
             </div>
         </div>

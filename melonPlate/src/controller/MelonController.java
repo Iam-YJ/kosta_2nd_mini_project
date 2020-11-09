@@ -71,28 +71,17 @@ public class MelonController implements Controller {
 		// 서비스 호출 -> dao 호출해서 그결과 받아서 이동
 		System.out.println("MelonoController의 selectByArea Controller 요청");
 
-//		String area = request.getParameter("area");
 		List<Melon> list = MelonService.selectByArea("강남");
-
-
-		System.out.println("selectByArea 호출");
-		String area = request.getParameter("area");
-		//List<Melon> list = MelonService.selectByArea("분당");
-		request.setAttribute("list", list);
-		System.out.println("Con list : " + list);
-
+		
 		ModelAndView mv = new ModelAndView();
 
 
-		request.setAttribute("res", list);
-		
-		for(Melon m : list) {
-			System.out.println(m);
-		}
-		
-		mv.setViewName("/html/admin_section/deleteResaturant.jsp");
+		request.setAttribute("list", list);
 
-		mv.setViewName("html/grid-listing-filterscol-map.jsp");
+		
+		mv.setViewName("/html/admin_section/deleteRestaurant.jsp");
+
+
 
 
 		return mv;
@@ -143,6 +132,7 @@ public class MelonController implements Controller {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("html/grid-listing-filterscol-map.jsp");
+		
 		return mv;
 	}
 }

@@ -46,7 +46,6 @@ public class MelonService {
 		// dao를 호출하고 그결과를 리턴
 		System.out.println("hi");
 		List<Melon> list = melonDAO.selectByArea(area);
-		System.out.println("hi");
 		return list;
 	}
 

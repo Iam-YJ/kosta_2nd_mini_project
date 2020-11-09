@@ -56,9 +56,13 @@ public class AdminController implements Controller {
 	 * 맛집 삭제 메소드 호출
 	 */
 
-	public ModelAndView deleteRes(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView deleteRes(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		System.out.println("AdminController의 deleteRes 호출되었습니다");
-		return new ModelAndView("index.jsp", true);
+		String resNo = request.getParameter("resResultNo");
+		//int resNoo = Integer.parseInt(resNo);
+		AdminService.deleteRes(Integer.parseInt(resNo));
+		System.out.println(Integer.parseInt(resNo));
+		return new ModelAndView("./dispatcher?key=melon&methodName=selectByArea", true);
 	}
 
 	/**
