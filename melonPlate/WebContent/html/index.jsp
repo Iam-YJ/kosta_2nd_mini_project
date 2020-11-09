@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 찐 메인 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +49,7 @@
 	<header class="header clearfix element_to_stick">
 		<div class="container">
 			<div id="logo">
-				<a href="index.html"> <img src="img/logo.svg" width="140"
+				<a href="index.jsp"> <img src="img/logo.svg" width="140"
 					height="35" alt="" class="logo_normal"> <img
 					src="img/logo_sticky.svg" width="140" height="35" alt=""
 					class="logo_sticky">
@@ -174,8 +174,8 @@
 								<div class="row no-gutters custom-search-input">
 									<div class="col-lg-8">
 										<div class="form-group">
-											<input class="form-control" type="text"
-												placeholder="What are you looking for..."> <i
+											<input name ="resName" class="form-control" type="text"
+												placeholder="식당명을 입력해주세요..."> <i
 												class="icon_search"></i>
 										</div>
 									</div>
@@ -735,7 +735,7 @@
 							var adminPwd = prompt("Password를 입력하세요");
 
 							if (adminId == "admin" && adminPwd == "admin"){
-								location.href = "../html/admin_section/index.jsp"
+								location.href = "../html/admin_section/add-listing-with-menu-list.html"
 
 							} else {
 								alert("관리자 이용 가능 메뉴입니다")

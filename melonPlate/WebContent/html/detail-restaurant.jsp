@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,29 +139,29 @@
 	</div>
 	</header>
 	<!-- /header -->
-	
 	<main>
-
 		<div class="hero_in detail_page background-image" style="
-background-image: URL(${pageContext.request.contextPath}/html/${param.resPhoto});">
+background-image: URL(${melon.resPhoto});">
 			<div class="wrapper opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 				
 				<div class="container">
 					<div class="main_info">
 						<div class="row">
 							<div class="col-xl-4 col-lg-5 col-md-6">
-								<div class="head"><div class="score"><span>Superb<em>350 Reviews</em></span><strong>${param.resGrade}</strong></div></div>
-								<h1>${param.resName}</h1>
-								${param.resType} - 27 Old Gloucester St, 4530 - <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank">Get directions</a>
+								<div class="head"><div class="score"><span>조회수<em>${melon.resHits}</em></span><strong>${melon.resGrade}</strong></div></div>
+								
+								<h2></h2>
+								<h1>${melon.resName}</h1>
+								${melon.resType} - ${melon.resPlace} - <a id = "loadfind" href="https://map.kakao.com/link/search/${melon.resName}" target="blank">오시는 길</a>
 							</div>
 							<div class="col-xl-8 col-lg-7 col-md-6">
 								<div class="buttons clearfix">
 									<span class="magnific-gallery">
-										<a href="${pageContext.request.contextPath}/html/img/detail_1.jpg" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>View photos</a>
+										<a href="${pageContext.request.contextPath}/html/img/detail_1.jpg" class="btn_hero" title="Photo title" data-effect="mfp-zoom-in"><i class="icon_image"></i>사진 보기</a>
 										<a href="${pageContext.request.contextPath}/html/img/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
 										<a href="${pageContext.request.contextPath}/html/img/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
 									</span>
-									<a href="#0" class="btn_hero wishlist"><i class="icon_heart"></i>Wishlist</a>
+									<a href="#0" class="btn_hero wishlist"><i class="icon_heart"></i>찜하기</a>
 								</div>
 							</div>
 						</div>
@@ -197,139 +198,22 @@ background-image: URL(${pageContext.request.contextPath}/html/${param.resPhoto})
 		                        </div>
 		                        <div id="collapse-A" class="collapse" role="tabpanel" aria-labelledby="heading-A">
 		                            <div class="card-body info_content">
-		                            	<p>Mei at intellegat reprehendunt, te facilisis definiebas dissentiunt usu. Choro delicata voluptatum cu vix. Sea error splendide at. Te sed facilisi persequeris definitiones, ad per scriptorem instructior, vim latine adipiscing no. Cu tacimates salutandi his, mel te dicant quodsi aperiri. Unum timeam his eu.</p>
-		                            	<p>An malorum ornatus nostrum vel, graece iracundia laboramus cu ius. No pro mazim blandit instructior, sumo voluptaria has et, vide persecuti abhorreant ne est.</p>
-		                            	<div class="add_bottom_25"></div>
-		                                <h2>Pictures from our users</h2>
-		                                <div class="pictures magnific-gallery clearfix">
-		                                    <figure><a href="img/detail_gallery/detail_1.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_1.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_2.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_3.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_3.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_4.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_4.jpg" class="lazy" alt=""></a></figure>
-		                                    <figure><a href="img/detail_gallery/detail_5.jpg" title="Photo title" data-effect="mfp-zoom-in"><span class="d-flex align-items-center justify-content-center">+10</span><img src="${pageContext.request.contextPath}/html/img/thumb_detail_placeholder.jpg" data-src="${pageContext.request.contextPath}/html/img/thumb_detail_5.jpg" class="lazy" alt=""></a></figure>
-		                                </div>
 		                                <!-- /pictures -->
-		                                <h2>Da Alfredo Menu</h2>
-		                                <h3>Starters</h3>
-		                                <div class="menu_item">
-		                                    <em>€9.90</em>
-		                                    <h4>Imported Salmon Steak</h4>
-		                                    <p>Base de arroz, aguacate, salmón noruego, semillas de sésamo, edamame, wakame y soja light</p>
-		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€7.90</em>
-		                                    <h4>Poke bol</h4>
-		                                    <p>Queso de cabra light, dátiles, jamón serrano y rúcula</p>
-		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€8.90</em>
-		                                    <h4>Ensalada cesar</h4>
-		                                    <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                </div>
-		                                <hr>
+		                                <h2>${melon.resName} Menu</h2>
 		                                <h3>Main Course</h3>
+		                                <c:forEach items="${menu}" var="me">
 		                                <div class="menu_item">
-		                                    <em>€15.90</em>
-		                                    <h4>Oriental</h4>
-		                                    <p>Cama de tabule con taquitos de pollo a la mostaza light</p>
+		                                    <h4>˚${me.menuName}</h4><p>
+		                                    <strong>${me.menuPrice}원</strong>
 		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€11.90</em>
-		                                    <h4>Vegan Burguer</h4>
-		                                    <p>Medio pollo asado acompañado de arroz o patatas al toque masala</p>
-		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€10.90</em>
-		                                    <h4>Indio Fit</h4>
-		                                    <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                </div>
-		                                <div class="content_more">
-		                                    <div class="menu_item">
-		                                        <em>€15.90</em>
-		                                        <h4>Oriental</h4>
-		                                        <p>Cama de tabule con taquitos de pollo a la mostaza light</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€11.90</em>
-		                                        <h4>Vegan Burguer</h4>
-		                                        <p>Medio pollo asado acompañado de arroz o patatas al toque masala</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€10.90</em>
-		                                        <h4>Indio Fit</h4>
-		                                        <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                    </div>
-		                                </div>
-		                                <!-- /content_more -->
-		                                <a href="#0" class="show_hide" data-content="toggle-text">Read More</a>
-		                                <hr>
-		                                <h3>Dessert</h3>
-		                                <div class="menu_item">
-		                                    <em>€15.90</em>
-		                                    <h4>Oriental</h4>
-		                                    <p>Cama de tabule con taquitos de pollo a la mostaza light</p>
-		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€11.90</em>
-		                                    <h4>Vegan Burguer</h4>
-		                                    <p>Medio pollo asado acompañado de arroz o patatas al toque masala</p>
-		                                </div>
-		                                <div class="menu_item">
-		                                    <em>€10.90</em>
-		                                    <h4>Indio Fit</h4>
-		                                    <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                </div>
-		                                <div class="content_more">
-		                                    <div class="menu_item">
-		                                        <em>€15.90</em>
-		                                        <h4>Oriental</h4>
-		                                        <p>Cama de tabule con taquitos de pollo a la mostaza light</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€11.90</em>
-		                                        <h4>Vegan Burguer</h4>
-		                                        <p>Medio pollo asado acompañado de arroz o patatas al toque masala</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€10.90</em>
-		                                        <h4>Indio Fit</h4>
-		                                        <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                    </div>
-		                                </div>
-		                                <!-- /content_more -->
-		                                <a href="#0" class="show_hide" data-content="toggle-text">Read More</a>
-		                                <div class="add_bottom_45"></div>
-		                                <div class="special_offers add_bottom_45">
-		                                    <h2>Special Offers</h2>
-		                                    <div class="menu_item">
-		                                        <em>€10.90</em>
-		                                        <h4>Indio Fit</h4>
-		                                        <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€15.90</em>
-		                                        <h4>Oriental</h4>
-		                                        <p>Cama de tabule con taquitos de pollo a la mostaza light</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€11.90</em>
-		                                        <h4>Vegan Burguer</h4>
-		                                        <p>Medio pollo asado acompañado de arroz o patatas al toque masala</p>
-		                                    </div>
-		                                    <div class="menu_item">
-		                                        <em>€10.90</em>
-		                                        <h4>Indio Fit</h4>
-		                                        <p>lechuga, tomate, espinacas, pollo asado, picatostes, queso proteínico y salsa césar 0%</p>
-		                                    </div>
-		                                </div>
-		                                <!-- /special_offers -->
+		                                </c:forEach>
 
 		                                <div class="other_info">
-		                                <h2>How to get to Pizzeria Alfredo</h2>
+		                                <h2>How to get to ${melon.resName}</h2>
 		                                <div class="row">
 		                                	<div class="col-md-4">
 		                                		<h3>Address</h3>
-		                                		<p>27 Old Gloucester St, 4530<br><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x47e66e1de36f4147:0xb6615b4092e0351f!2sAssistance+Publique+-+H%C3%B4pitaux+de+Paris+(AP-HP)+-+Si%C3%A8ge!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="blank"><strong>Get directions</strong></a></p>
+		                                		<p>${melon.resPlace}<br><a href="https://map.kakao.com/link/search/${melon.resName}" target="blank"><strong>오시는 길</strong></a></p>
 		                                		<strong>Follow Us</strong><br>
 		                                		<p class="follow_us_detail"><a href="#0"><i class="social_facebook_square"></i></a><a href="#0"><i class="social_instagram_square"></i></a><a href="#0"><i class="social_twitter_square"></i></a></p>
 		                                	</div>
@@ -778,6 +662,7 @@ background-image: URL(${pageContext.request.contextPath}/html/${param.resPhoto})
 		</form>
 		<!--form -->
 	</div>
+	
 	<!-- /Sign In Modal -->
 	
 	<!-- COMMON SCRIPTS -->

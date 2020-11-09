@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dto.Melon;
+import model.dto.Menu;
 
 public interface MelonDAO {
 	/*
@@ -44,8 +45,7 @@ public interface MelonDAO {
 	/*
 	 * 주변 식당 추천(내 위치 기준) 
 	 * */
-
-	List<Melon> selectRecommend(double lat, double lon) throws SQLException;
+	List<Melon> selectRecommend() throws SQLException;
 	
 	/*
 	 * 식당 상세보기 
@@ -53,5 +53,9 @@ public interface MelonDAO {
 	Melon selectDetailRes(int resNo) throws SQLException;
 
 	List<Melon> selectAll() throws SQLException;
-
+	
+	/*
+	 * 메뉴 보기
+	 * */
+	List<Menu> selectMenu(int resNo) throws SQLException;
 }

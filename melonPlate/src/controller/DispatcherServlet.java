@@ -31,10 +31,12 @@ public class DispatcherServlet extends HttpServlet {
 		map = (Map<String, Controller>) super.getServletContext().getAttribute("map");
 		clzMap = (Map<String, Class<?>>) super.getServletContext().getAttribute("clzMap");
 		System.out.println(clzMap);
-
+		map = (Map<String, Controller>) getServletContext().getAttribute("map");
+		clzMap = (Map<String, Class<?>>) getServletContext().getAttribute("clzMap");
 
 	}
 
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +45,10 @@ public class DispatcherServlet extends HttpServlet {
 
 		String key = request.getParameter("key");
 
+		System.out.println(key);
+		
 		String methodName = request.getParameter("methodName");
+		System.out.println(methodName);
 
 		Controller con = map.get(key);
 		Class<?> cls = clzMap.get(key);
@@ -51,7 +56,7 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 			Method method = cls.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
 			// cls 안에서 methodName에 해당하는 정보를 얻어온 것이다
-			System.out.println("METOD = "+method);
+
 			ModelAndView mv = (ModelAndView) method.invoke(con, request, response);
 			// 메소드를 호출하는 것
 

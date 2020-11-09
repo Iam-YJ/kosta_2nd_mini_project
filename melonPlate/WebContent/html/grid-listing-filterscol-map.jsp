@@ -311,7 +311,7 @@
 						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
 							<div class="strip">
 							    <figure>
-							        <img src="${pageContext.request.contextPath}/html/img/2017010800015_0.jpg" data-src="${pageContext.request.contextPath}/html/img/location_1.jpg" class="${pageContext.request.contextPath}/html/2017010800015_0.jpg" alt="">
+							        <img src="${res.resPhoto}" data-src="${pageContext.request.contextPath}/html/img/location_1.jpg" class="${res.resPhoto}" alt="">
 							        <a href="dispatcher?key=melon&methodName=selectDetailRes&resNo=${res.resNo}" class="strip_info">
 							            <small>${res.resType}</small>
 							            <div class="item_title">
@@ -514,6 +514,29 @@
     <script src="${pageContext.request.contextPath}/html/js/main_map_scripts.js"></script>
 	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=57435e874fa64740b31e8b064eae4495&libraries=services"></script>
 	<script>
+	$(function() {
+		$.ajax({
+			type:"post" ,			//전송방식(get, post, put, delete)
+			url:"../melon" ,			//서버주소
+			dataType:"json" ,		//(서버가 보낸)응답데이터의 타입(text, html, xml, json)
+			//서버에 보낼 parameter정보
+			
+			//요청결과가 성공했을때 호출되는 함수
+			success:function(result){
+				var addr = [];
+				var name = [];
+				$.each(result, function(index, item){
+					addr.push(item.resPlace);
+					name.push(item.resName);
+					console.log(addr)
+				});
+			} ,		
+			//요청결과가 실패했을때 호출되는 함수
+			error:function(err){
+				console.log(err)
+			} 		
+		});
+	});
 	function getLocation() {
 	  if (navigator.geolocation) { 
 	    navigator.geolocation.getCurrentPosition(function(position) {
