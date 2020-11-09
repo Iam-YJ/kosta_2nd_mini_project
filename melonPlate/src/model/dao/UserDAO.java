@@ -9,9 +9,9 @@ import model.dto.User;
 
 public interface UserDAO {
 	/*
-	 * 회원가입 
+	 * 카카오 회원가입 
 	 * */
-	int  join(User user);
+	int  joinKakao(int userNo, String userNick, int userAge, String userEmail, String userGender);
 	
 	/*
 	 * 로그인  
@@ -73,4 +73,9 @@ public interface UserDAO {
 	 * 공지사항 상세보기
 	 */
 	Noti selectNotiByNotiNo(int notiNo) throws SQLException;
+	
+	/**
+	 * 관심분야 추가
+	 */
+	int interestInsert(String[] iList) throws SQLException;
 }

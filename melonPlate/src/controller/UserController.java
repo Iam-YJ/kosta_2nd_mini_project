@@ -7,15 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.ModelAndView;
 import model.dto.Melon;
 import model.dto.Noti;
 import model.dto.User;
 import model.service.UserService;
 
-@WebServlet("/user")
 public class UserController implements Controller {
-	
+
 	UserService service = new UserService();
 
 	@Override
@@ -23,7 +21,34 @@ public class UserController implements Controller {
 		System.out.println("UserController당");
 		return null;
 	}
-	
+
+	public ModelAndView join(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("UserController안 join 호출");
+		String userNo = request.getParameter("userNo");
+		String userNick = request.getParameter("userNick");
+		String userAge = request.getParameter("userAge");
+		String userEmail = request.getParameter("userEmail");
+		String userGender = request.getParameter("userGender");
+
+		/*
+		 * System.out.println("userNo = "+ userNo); System.out.println("userNick = "+
+		 * userNick); System.out.println("userAge = "+ userAge);
+		 * System.out.println("userEmail = "+ userEmail);
+		 * System.out.println("userGender = "+ userGender);
+		 */
+
+		if (userGender.equals("female")) {
+			userGender = "여";
+		} else {
+			userGender = "남";
+		}
+
+		service.joinKakao(Integer.parseInt(userNo), userNick, 20, userEmail, userGender);
+
+		return new ModelAndView("./html/admin_section/add-listing.jsp", true);
+
+	}
+
 	/**
 	 * 찜하기 추가
 	 */
@@ -40,8 +65,7 @@ public class UserController implements Controller {
 		
 		return new ModelAndView("html/detail-restaurant.jsp", true);
 	}
-	
-	
+
 	/**
 	 * 찜하기 삭제 
 	 */
@@ -57,8 +81,7 @@ public class UserController implements Controller {
 		
 		return new ModelAndView("dispatcher?key=user&methodName=seleteBookMark&user_no="+Integer.parseInt(userNo), true);
 	}
-	
-	
+
 	/**
 	 * 찜하기 조회 
 	 */
@@ -75,8 +98,7 @@ public class UserController implements Controller {
 		
 		return new ModelAndView("html/admin_section/bookmarks.jsp", false);
 	}
-	
-	
+
 	/**
 	 * 포인트 증가 
 	 */
@@ -92,7 +114,6 @@ public class UserController implements Controller {
 		return mv;
 	}
 	
-	
 	/**
 	 *  회원정보 조회
 	 * */
@@ -107,6 +128,7 @@ public class UserController implements Controller {
 	}
 	
 	
+
 	/**
 	 *  회원정보수정
 	 * */
@@ -128,6 +150,8 @@ public class UserController implements Controller {
 		return new ModelAndView("dispatcher?key=user&methodName=selectUserInfo&user_no="+Integer.parseInt(userNo), true);
 	}
 	
+	
+
 	/**
 	 * 유저입장 공지사항 조회
 	 * */
@@ -153,5 +177,18 @@ public class UserController implements Controller {
 		return new ModelAndView("html/admin_section/notice-detail.jsp", false);
 	}
 
+	/**
+	 * 관심분야 추가
+	 */
+	public ModelAndView interestInsert(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("UserController 안 interestInsert 입니당");
+		String[] iList = request.getParameterValues("interests");
+		int result = service.interestInsert(iList);
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/melonPlate/html/admin_section/user-profile.jsp");
+		mv.setRedirect(true);
+		return mv;
+	}
 
 }

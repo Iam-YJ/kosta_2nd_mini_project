@@ -10,29 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.Controller;
-import controller.ModelAndView;
-
-
 /**
  * 사용자 요청을 중앙집중적으로 관리해줄 FrontController : 사용자 요청을 받아서 그에 해당하는 Controller를 찾아서
  * 호출하고 그 결과를(ModelAndView) 받아서 해당하는 뷰페이지로 이동시킨다
  */
 @WebServlet(urlPatterns = "/dispatcher", loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
-	
 	private Map<String, Controller> map;
 	private Map<String, Class<?>> clzMap;
 
 	@Override
 	public void init() throws ServletException {
-
 		System.out.println("init call");
 		map = (Map<String, Controller>) super.getServletContext().getAttribute("map");
 		clzMap = (Map<String, Class<?>>) super.getServletContext().getAttribute("clzMap");
-		System.out.println(clzMap);
-		map = (Map<String, Controller>) getServletContext().getAttribute("map");
-		clzMap = (Map<String, Class<?>>) getServletContext().getAttribute("clzMap");
 
 	}
 
@@ -41,11 +32,10 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("요청됨");
+		System.out.println("service 요청됨");
 
 		String key = request.getParameter("key");
 		System.out.println("key: " + key);
-
 		String methodName = request.getParameter("methodName");
 		System.out.println("mathodName: " + methodName);
 
@@ -74,3 +64,4 @@ public class DispatcherServlet extends HttpServlet {
 		}
 	}
 }
+

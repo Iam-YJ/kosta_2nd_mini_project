@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.dto.Melon;
+import model.dto.Menu;
 import util.DbUtil;
 
 public class MelonDAOImpl implements MelonDAO{
@@ -108,7 +109,7 @@ public class MelonDAOImpl implements MelonDAO{
 	
 	
 	/**
-	 * 평점 정렬
+	 * 조회수 업데이트
 	 */
 	@Override
 	public int updateHits(int resNo) throws SQLException {
@@ -124,7 +125,7 @@ public class MelonDAOImpl implements MelonDAO{
 			result = ps.executeUpdate();
 			
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(ps, null);
 		}
 		return result;
 	}
@@ -166,9 +167,7 @@ public class MelonDAOImpl implements MelonDAO{
 		return list;
 	}
 
-	/**
-	 * 조회수 업데이트
-	 */
+	
 	@Override
 	public List<Melon> selectByResName(String resName) throws SQLException {
 		Connection con = null;
@@ -246,8 +245,125 @@ public class MelonDAOImpl implements MelonDAO{
 
 	@Override
 	public List<Melon> selectRecommend() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT RES_NAME, RES_PLACE FROM RESTAURANT";
+		List<Melon> list = new ArrayList<Melon>();
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				String resName = rs.getString(1);
+				String resPlace = rs.getString(2);
+				Melon melon = new Melon(resName, resPlace);
+				
+				list.add(melon);
+				
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
+	}
+
+	@Override
+	public Melon selectDetailRes(int resNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM RESTAURANT WHERE RES_NO = ?";
+		Melon melon = null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, resNo);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				resNo = rs.getInt(1);
+				String resName = rs.getString(2);
+				String resPlace = rs.getString(3);
+				String resTel = rs.getString(4);
+				String resType = rs.getString(5);
+				String resPhoto = rs.getString(6);
+				int resHits = rs.getInt(7);
+				int resGrade = rs.getInt(8);
+				String resPrice = rs.getString(9);
+				
+				melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return melon;
+	}
+
+	@Override
+	public List<Melon> selectAll() throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM RESTAURANT";
+		List<Melon> list = new ArrayList<Melon>();
 		
-		return null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int resNo = rs.getInt(1);
+				String resName = rs.getString(2);
+				String resPlace = rs.getString(3);
+				String resTel = rs.getString(4);
+				String resType = rs.getString(5);
+				String resPhoto = rs.getString(6);
+				int resHits = rs.getInt(7);
+				int resGrade = rs.getInt(8);
+				String resPrice = rs.getString(9);
+				
+				Melon melon = new Melon(resNo, resName, resPlace, resTel, resType, resPhoto, resHits, resGrade, resPrice);
+				
+				list.add(melon);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		System.out.println("list all : " + list);
+		return list;
+	}
+
+	@Override
+	public List<Menu> selectMenu(int resNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM MENU WHERE RES_NO = ?";
+		List<Menu> list = new ArrayList<Menu>();
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, resNo);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int menuNo = rs.getInt(1);
+				resNo = rs.getInt(2);
+				String menuName = rs.getString(3);
+				String menuPrice = rs.getString(4);
+				
+				Menu menu = new Menu(menuNo, resNo, menuName, menuPrice);
+				list.add(menu);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		System.out.println("dao : " + list);
+		return list;
 	}
 
 }

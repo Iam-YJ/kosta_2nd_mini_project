@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.dto.Noti;
 import model.service.AdminService;
 
-@WebServlet("/notice")
 public class NotiController implements Controller{
 
 	@Override

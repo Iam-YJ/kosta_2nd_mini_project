@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Bookmarks">
-                    <a class="nav-link" href="../../dispatcher?key=user&methodName=seleteBookMark&user_no=1">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/dispatcher?key=user&methodName=seleteBookMark&user_no=1">
                         <i class="fa fa-fw fa-heart"></i>
                         <span class="nav-link-text">Bookmarks</span>
                     </a>

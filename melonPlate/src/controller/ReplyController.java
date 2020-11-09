@@ -1,24 +1,19 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dto.Melon;
 import model.dto.Reply;
-import model.dto.User;
 import model.service.ReplyService;
 import model.service.UserService;
 
-@WebServlet("/review")
 public class ReplyController implements Controller {
 	
 	ReplyService service = new ReplyService();
-	UserService userService = new UserService();
-	
+
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
@@ -145,4 +140,3 @@ public class ReplyController implements Controller {
 	}
 	
 }
-	

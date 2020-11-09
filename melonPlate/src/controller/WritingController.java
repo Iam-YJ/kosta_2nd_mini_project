@@ -6,13 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.ModelAndView;
 import model.dto.Melon;
 import model.dto.WriList;
 import model.dto.Writing;
 import model.service.WritingService;
 
-@WebServlet("/writing")
 public class WritingController implements Controller {
 	
 	WritingService service = new WritingService();
@@ -102,4 +100,5 @@ public class WritingController implements Controller {
 		request.setAttribute("list", list);
 		return new ModelAndView("index.html", false);
 	}
+
 }

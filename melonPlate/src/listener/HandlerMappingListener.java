@@ -45,8 +45,6 @@ public class HandlerMappingListener implements ServletContextListener {
 				Controller controller = (Controller) Class.forName(value).newInstance();
 				map.put(key, controller);
 				clzMap.put(key, cls);
-				System.out.println(key + " = " + controller);
-
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
